@@ -1,0 +1,283 @@
+.pizza-button
+  a(href="https://www.buymeacoffee.com/robpetrin" target="_blank" title='Buy me a pizza!') 
+    button
+      i.fa-solid.fa-pizza-slice
+
+nav#menu
+  .logo-wrap
+    img(src='https://assets.codepen.io/1004111/481414-200.svg')
+  ul.menu
+    li 
+      icon 
+        i.fas.fa-hand-point-down
+      span Current
+    li 
+      icon 
+        i.fa-solid.fa-medal
+      span Ranks
+    li 
+      icon 
+        i.fa-solid.fa-arrows-rotate
+      span Changes
+    li 
+      icon 
+        i.fa-solid.fa-calendar-days
+      span Calendar
+    li 
+      icon 
+        i.fa-solid.fa-map-location-dot
+      span Map
+    li.yellow
+      icon
+        i.fa-solid.fa-filter
+      span Filters
+      .filters-drawer
+        .filters.date 
+          p Dates
+          .date-start
+          .date-end
+        .filters.promotions
+          p Feds
+          .promotion-tags
+            .promotion-tag#wwe WWE
+            .promotion-tag#aew AEW
+            .promotion-tag#impact Impact
+            .promotion-tag#njpw NJPW
+        .filters.cities
+          p Cities
+          input.cities-input
+        .filters-reset Reset
+
+main#panel
+  label.toggle(for='check' title="Spacebar also works!")
+    input#check(type='checkbox' onclick='slideout.toggle()')
+    span
+    span
+    span
+  .main-inside(onclick='closeIcon()')
+    h1 Matstat
+      span.tag beta
+    p(style="margin-left: 0.5rem; margin: -0.5rem 0.5rem 2rem") Professional wrestling title change database
+    h2#h2 Current Champions
+    #current
+      .current-company
+        h3 WWE
+        ui
+          li Roman Reigns
+            span.tag SD
+            span.tag UNIV
+          li Big E
+            span.tag RAW
+            span.tag UNIV
+          li Roman Reigns
+            span.tag SD
+            span.tag UNIV
+          li Roman Reigns
+            span.tag SD
+            span.tag UNIV
+          li Roman Reigns
+            span.tag SD
+            span.tag UNIV
+          li Roman Reigns
+            span.tag SD
+            span.tag UNIV
+          li Roman Reigns
+            span.tag SD
+            span.tag UNIV
+          li Roman Reigns
+            span.tag SD
+            span.tag UNIV
+          li Roman Reigns
+            span.tag SD
+            span.tag UNIV
+          li Roman Reigns
+            span.tag SD
+            span.tag UNIV
+          li Roman Reigns
+            span.tag SD
+            span.tag UNIV
+      .current-company
+        h3 AEW
+        ui
+          li Roman Reigns
+            span.tag SD
+            span.tag UNIV
+          li Roman Reigns
+            span.tag SD
+            span.tag UNIV
+          li Roman Reigns
+            span.tag SD
+            span.tag UNIV
+          li Roman Reigns
+            span.tag SD
+            span.tag UNIV
+          li Roman Reigns
+            span.tag SD
+            span.tag UNIV
+          li Roman Reigns
+            span.tag SD
+            span.tag UNIV
+      .current-company
+        h3 NXT
+        ui
+          li Roman Reigns
+            span.tag SD
+            span.tag UNIV
+          li Roman Reigns
+            span.tag SD
+            span.tag UNIV
+          li Roman Reigns
+            span.tag SD
+            span.tag UNIV
+          li Roman Reigns
+            span.tag SD
+            span.tag UNIV
+          li Roman Reigns
+            span.tag SD
+            span.tag UNIV
+          li Roman Reigns
+            span.tag SD
+            span.tag UNIV
+          li Roman Reigns
+            span.tag SD
+            span.tag UNIV
+      .current-company
+        h3 Impact
+        ui
+          li Roman Reigns
+            span.tag SD
+            span.tag UNIV
+          li Roman Reigns
+            span.tag SD
+            span.tag UNIV
+          li Roman Reigns
+            span.tag SD
+            span.tag UNIV
+          li Roman Reigns
+            span.tag SD
+            span.tag UNIV
+          li Roman Reigns
+            span.tag SD
+            span.tag UNIV
+      .current-company
+        h3 NJPW
+        ui
+          li Roman Reigns
+            span.tag SD
+            span.tag UNIV
+          li Roman Reigns
+            span.tag SD
+            span.tag UNIV
+          li Roman Reigns
+            span.tag SD
+            span.tag UNIV
+          li Roman Reigns
+            span.tag SD
+            span.tag UNIV
+          li Roman Reigns
+            span.tag SD
+            span.tag UNIV
+          li Roman Reigns
+            span.tag SD
+            span.tag UNIV
+          li Roman Reigns
+            span.tag SD
+            span.tag UNIV
+          li Roman Reigns
+            span.tag SD
+            span.tag UNIV
+          li Roman Reigns
+            span.tag SD
+            span.tag UNIV
+      .current-company
+        h3 ROH
+        ui
+          li Roman Reigns
+            span.tag SD
+            span.tag UNIV
+          li Roman Reigns
+            span.tag SD
+            span.tag UNIV
+          li Roman Reigns
+            span.tag SD
+            span.tag UNIV
+          li Roman Reigns
+            span.tag SD
+            span.tag UNIV
+          li Roman Reigns
+            span.tag SD
+            span.tag UNIV
+      .current-company
+        h3 NXT UK
+        ui
+          li Roman Reigns
+            span.tag SD
+            span.tag UNIV
+          li Roman Reigns
+            span.tag SD
+            span.tag UNIV
+          li Roman Reigns
+            span.tag SD
+            span.tag UNIV
+          li Roman Reigns
+            span.tag SD
+            span.tag UNIV
+          li Roman Reigns
+            span.tag SD
+            span.tag UNIV
+          li Roman Reigns
+            span.tag SD
+            span.tag UNIV
+    #ranks
+      
+    #changes
+    #calendar
+      .calendar-section
+        h3 On This Date
+        ui
+          li Roman Reigns
+            span.tag SD
+            span.tag UNIV
+          li Big E
+            span.tag RAW
+            span.tag UNIV
+          li Roman Reigns
+            span.tag SD
+            span.tag UNIV
+          li Roman Reigns
+            span.tag SD
+            span.tag UNIV
+      .calendar-section
+        h3 Later This Week
+        ui
+          li Roman Reigns
+            span.tag SD
+            span.tag UNIV
+          li Big E
+            span.tag RAW
+            span.tag UNIV
+          li Roman Reigns
+            span.tag SD
+            span.tag UNIV
+          li Roman Reigns
+            span.tag SD
+            span.tag UNIV
+      .calendar-section
+        h3 Later This Month
+        ui
+          li Roman Reigns
+            span.tag SD
+            span.tag UNIV
+          li Big E
+            span.tag RAW
+            span.tag UNIV
+          li Roman Reigns
+            span.tag SD
+            span.tag UNIV
+          li Roman Reigns
+            span.tag SD
+            span.tag UNIV
+    #map-section
+      #map.map
+      .map-list Table of winners to change the map view above
+      
