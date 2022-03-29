@@ -336,6 +336,14 @@ main {
   margin-left: 0.5rem; }
   .active-champs p {
     margin-bottom: 1rem; }
+  .active-champs .active-entry {
+    display: flex; }
+  .active-champs .date {
+    width: 200px; }
+  .active-champs .title {
+    width: 200px; }
+  .active-champs .name {
+    color: #daa520; }
 
 .changes-table {
   padding: 0.5rem;
@@ -401,10 +409,15 @@ main {
 .todays-date {
   color: #daa520; }
 
+.calendar-main {
+  display: flex; }
+
 .calendar-filters {
   gap: 2rem;
-  margin: 2rem 0.5rem;
-  width: 300px; }
+  margin: 0 0.5rem 2rem;
+  width: 250px; }
+  .calendar-filters h3 {
+    margin-bottom: 1rem; }
   .calendar-filters .calendar-month-filters {
     color: #daa520;
     display: flex;
@@ -427,6 +440,8 @@ main {
 
 .calendar-list {
   margin-top: 1rem; }
+  .calendar-list h3 {
+    margin-bottom: 1rem; }
   .calendar-list li {
     margin: 1.75rem 0;
     display: flex;

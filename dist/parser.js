@@ -117,13 +117,42 @@ fetch('./per-title.json')
             active.push(each[each.length - 1])
         }
     })
-    active = active.sort((a, b) => (a.data.promotion > b.data.promotion) ? 1 : -1)
-    console.log(active)
+    active.forEach(function(each){
+        let changeDate = moment(each['Championship_change_Date']).format("DD MMM YYYY")
+        each.daysSince = countDays(changeDate)
+        console.log(each.daysSince)
+    })
+    active = active.sort((a, b) => (a.daysSince < b.daysSince) ? 1 : -1)
     let activeChamps = document.querySelector('.active-champs')
     active.forEach(function(each){
+        let entry = document.createElement('div')
+        entry.classList.add('active-entry')
+
+        let dateElem = document.createElement('div')
+        dateElem.innerText = `${each.daysSince}d+`
+        dateElem.classList.add('date')
+        entry.appendChild(dateElem)
+
+        let titleElem = document.createElement('div')
+        let titlePromElem = document.createElement('span')
+        let titleNameElem = document.createElement('span')
+        titlePromElem.innerText = each.data.promotion
+        titleNameElem.innerText = each.data['short-name'].toUpperCase()
+        titleElem.classList.add('title')
+        titlePromElem.classList.add('tag')
+        titlePromElem.classList.add(`${each.data.promotion.toLowerCase()}-tag`)
+        titleNameElem.classList.add('tag')
+        titleNameElem.classList.add(`${each.data.promotion.toLowerCase()}-tag`)
+        titleNameElem.classList.add(`${each.data.promotion.toLowerCase()}-${each.data['short-name'].replace('/','').toLowerCase()}-tag`)
+        titleElem.appendChild(titlePromElem)
+        titleElem.appendChild(titleNameElem)
+        entry.appendChild(titleElem)
+        
         let champName = document.createElement('p')
         champName.innerText = each['Champion']
-        activeChamps.appendChild(champName)
+        entry.appendChild(champName)
+        
+        activeChamps.appendChild(entry)
     })
 })
 
@@ -270,4 +299,20 @@ function changeMonth(month) {
 function changeDay(day) {
     dateObj.day = day
     returnDateChanges()
+}
+
+function countDays(start) {
+    const date1 = new Date(start);
+    const date2 = new Date();
+
+    // One day in milliseconds
+    const oneDay = 1000 * 60 * 60 * 24;
+
+    // Calculating the time difference between two dates
+    const diffInTime = date2.getTime() - date1.getTime();
+
+    // Calculating the no. of days between two dates
+    const diffInDays = Math.round(diffInTime / oneDay);
+
+    return diffInDays;
 }
