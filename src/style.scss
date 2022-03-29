@@ -390,8 +390,7 @@ main {
 }
 
 #current {
-  display: flex;
-  flex-wrap: wrap;
+  display: block;
 }
 #map-section {
   display: grid;
@@ -416,16 +415,20 @@ main {
   }
   .active-entry {
     display: flex;
-  }
-  .date {
-    width: 200px;
-  }
-  .title {
-    width: 200px;
+    flex-wrap: wrap;
+    gap: 1rem;
   }
   .name {
     color: $goldenrod;
+    word-wrap: break-word;
   }
+}
+
+.current-direction {
+  font-size: 1rem;
+  margin-left: 1rem;
+  color: $goldenrod;
+  cursor: pointer;
 }
 
 .changes-table {

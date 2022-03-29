@@ -122,38 +122,7 @@ fetch('./per-title.json')
         each.daysSince = countDays(changeDate)
         console.log(each.daysSince)
     })
-    active = active.sort((a, b) => (a.daysSince < b.daysSince) ? 1 : -1)
-    let activeChamps = document.querySelector('.active-champs')
-    active.forEach(function(each){
-        let entry = document.createElement('div')
-        entry.classList.add('active-entry')
-
-        let dateElem = document.createElement('div')
-        dateElem.innerText = `${each.daysSince}d+`
-        dateElem.classList.add('date')
-        entry.appendChild(dateElem)
-
-        let titleElem = document.createElement('div')
-        let titlePromElem = document.createElement('span')
-        let titleNameElem = document.createElement('span')
-        titlePromElem.innerText = each.data.promotion
-        titleNameElem.innerText = each.data['short-name'].toUpperCase()
-        titleElem.classList.add('title')
-        titlePromElem.classList.add('tag')
-        titlePromElem.classList.add(`${each.data.promotion.toLowerCase()}-tag`)
-        titleNameElem.classList.add('tag')
-        titleNameElem.classList.add(`${each.data.promotion.toLowerCase()}-tag`)
-        titleNameElem.classList.add(`${each.data.promotion.toLowerCase()}-${each.data['short-name'].replace('/','').toLowerCase()}-tag`)
-        titleElem.appendChild(titlePromElem)
-        titleElem.appendChild(titleNameElem)
-        entry.appendChild(titleElem)
-        
-        let champName = document.createElement('p')
-        champName.innerText = each['Champion']
-        entry.appendChild(champName)
-        
-        activeChamps.appendChild(entry)
-    })
+    drawActiveBoard(true)
 })
 
 setTimeout(function(){
@@ -315,4 +284,51 @@ function countDays(start) {
     const diffInDays = Math.round(diffInTime / oneDay);
 
     return diffInDays;
+}
+
+let currentDirection = document.querySelector('.current-direction')
+var currentDrawDirection = true
+function drawActiveBoard() {
+    currentDrawDirection = !currentDrawDirection
+    if (currentDrawDirection) {
+        active = active.sort((a, b) => (a.daysSince < b.daysSince) ? 1 : -1)
+        currentDirection.innerText = 'Show Shortest Reigns First'
+    } else {
+        active = active.sort((a, b) => (a.daysSince > b.daysSince) ? 1 : -1)
+        currentDirection.innerText = 'Show Longest Reigns First'
+    }
+    let activeChamps = document.querySelector('.active-champs')
+    while (activeChamps.firstChild) {
+        activeChamps.firstChild.remove()
+    }
+    active.forEach(function(each){
+        let entry = document.createElement('div')
+        entry.classList.add('active-entry')
+        
+        let dateElem = document.createElement('div')
+        dateElem.innerText = `${each.daysSince}d+`
+        dateElem.classList.add('date')
+        entry.appendChild(dateElem)
+        
+        let titleElem = document.createElement('div')
+        let titlePromElem = document.createElement('span')
+        let titleNameElem = document.createElement('span')
+        titlePromElem.innerText = each.data.promotion
+        titleNameElem.innerText = each.data['short-name'].toUpperCase()
+        titleElem.classList.add('title')
+        titlePromElem.classList.add('tag')
+        titlePromElem.classList.add(`${each.data.promotion.toLowerCase()}-tag`)
+        titleNameElem.classList.add('tag')
+        titleNameElem.classList.add(`${each.data.promotion.toLowerCase()}-tag`)
+        titleNameElem.classList.add(`${each.data.promotion.toLowerCase()}-${each.data['short-name'].replace('/','').toLowerCase()}-tag`)
+        titleElem.appendChild(titlePromElem)
+        titleElem.appendChild(titleNameElem)
+        entry.appendChild(titleElem)
+        
+        let champName = document.createElement('p')
+        champName.innerText = each['Champion']
+        entry.appendChild(champName)
+        
+        activeChamps.appendChild(entry)
+    })
 }

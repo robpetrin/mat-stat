@@ -317,8 +317,7 @@ main {
     list-style-type: none; }
 
 #current {
-  display: flex;
-  flex-wrap: wrap; }
+  display: block; }
 
 #map-section {
   display: grid;
@@ -337,13 +336,18 @@ main {
   .active-champs p {
     margin-bottom: 1rem; }
   .active-champs .active-entry {
-    display: flex; }
-  .active-champs .date {
-    width: 200px; }
-  .active-champs .title {
-    width: 200px; }
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem; }
   .active-champs .name {
-    color: #daa520; }
+    color: #daa520;
+    word-wrap: break-word; }
+
+.current-direction {
+  font-size: 1rem;
+  margin-left: 1rem;
+  color: #daa520;
+  cursor: pointer; }
 
 .changes-table {
   padding: 0.5rem;
