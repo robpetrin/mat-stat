@@ -76,257 +76,67 @@ main#panel
     .main-content
       #current
         h2#h2 Current Champions
-        .current-company
-          h3 WWE
-          ui
-            li Roman Reigns
-              span.tag SD
-              span.tag UNIV
-            li Big E
-              span.tag RAW
-              span.tag UNIV
-            li Roman Reigns
-              span.tag SD
-              span.tag UNIV
-            li Roman Reigns
-              span.tag SD
-              span.tag UNIV
-            li Roman Reigns
-              span.tag SD
-              span.tag UNIV
-            li Roman Reigns
-              span.tag SD
-              span.tag UNIV
-            li Roman Reigns
-              span.tag SD
-              span.tag UNIV
-            li Roman Reigns
-              span.tag SD
-              span.tag UNIV
-            li Roman Reigns
-              span.tag SD
-              span.tag UNIV
-            li Roman Reigns
-              span.tag SD
-              span.tag UNIV
-            li Roman Reigns
-              span.tag SD
-              span.tag UNIV
-        .current-company
-          h3 AEW
-          ui
-            li Roman Reigns
-              span.tag SD
-              span.tag UNIV
-            li Roman Reigns
-              span.tag SD
-              span.tag UNIV
-            li Roman Reigns
-              span.tag SD
-              span.tag UNIV
-            li Roman Reigns
-              span.tag SD
-              span.tag UNIV
-            li Roman Reigns
-              span.tag SD
-              span.tag UNIV
-            li Roman Reigns
-              span.tag SD
-              span.tag UNIV
-        .current-company
-          h3 NXT
-          ui
-            li Roman Reigns
-              span.tag SD
-              span.tag UNIV
-            li Roman Reigns
-              span.tag SD
-              span.tag UNIV
-            li Roman Reigns
-              span.tag SD
-              span.tag UNIV
-            li Roman Reigns
-              span.tag SD
-              span.tag UNIV
-            li Roman Reigns
-              span.tag SD
-              span.tag UNIV
-            li Roman Reigns
-              span.tag SD
-              span.tag UNIV
-            li Roman Reigns
-              span.tag SD
-              span.tag UNIV
-        .current-company
-          h3 Impact
-          ui
-            li Roman Reigns
-              span.tag SD
-              span.tag UNIV
-            li Roman Reigns
-              span.tag SD
-              span.tag UNIV
-            li Roman Reigns
-              span.tag SD
-              span.tag UNIV
-            li Roman Reigns
-              span.tag SD
-              span.tag UNIV
-            li Roman Reigns
-              span.tag SD
-              span.tag UNIV
-        .current-company
-          h3 NJPW
-          ui
-            li Roman Reigns
-              span.tag SD
-              span.tag UNIV
-            li Roman Reigns
-              span.tag SD
-              span.tag UNIV
-            li Roman Reigns
-              span.tag SD
-              span.tag UNIV
-            li Roman Reigns
-              span.tag SD
-              span.tag UNIV
-            li Roman Reigns
-              span.tag SD
-              span.tag UNIV
-            li Roman Reigns
-              span.tag SD
-              span.tag UNIV
-            li Roman Reigns
-              span.tag SD
-              span.tag UNIV
-            li Roman Reigns
-              span.tag SD
-              span.tag UNIV
-            li Roman Reigns
-              span.tag SD
-              span.tag UNIV
-        .current-company
-          h3 ROH
-          ui
-            li Roman Reigns
-              span.tag SD
-              span.tag UNIV
-            li Roman Reigns
-              span.tag SD
-              span.tag UNIV
-            li Roman Reigns
-              span.tag SD
-              span.tag UNIV
-            li Roman Reigns
-              span.tag SD
-              span.tag UNIV
-            li Roman Reigns
-              span.tag SD
-              span.tag UNIV
-        .current-company
-          h3 NXT UK
-          ui
-            li Roman Reigns
-              span.tag SD
-              span.tag UNIV
-            li Roman Reigns
-              span.tag SD
-              span.tag UNIV
-            li Roman Reigns
-              span.tag SD
-              span.tag UNIV
-            li Roman Reigns
-              span.tag SD
-              span.tag UNIV
-            li Roman Reigns
-              span.tag SD
-              span.tag UNIV
-            li Roman Reigns
-              span.tag SD
-              span.tag UNIV
+        .active-champs
       #ranks
         h2 Rankings
       #changes
         h2 Title Changes
+        .changes-table
       #calendar
-        h2 Calendar of Title Changes
+        h2 Calendar
         .calendar-section
-          h3 On This Date
-          ui
-            li Roman Reigns
-              span.tag SD
-              span.tag UNIV
-            li Big E
-              span.tag RAW
-              span.tag UNIV
-            li Roman Reigns
-              span.tag SD
-              span.tag UNIV
-            li Roman Reigns
-              span.tag SD
-              span.tag UNIV
-        .calendar-section
-          h3 Later This Week
-          ui
-            li Roman Reigns
-              span.tag SD
-              span.tag UNIV
-            li Big E
-              span.tag RAW
-              span.tag UNIV
-            li Roman Reigns
-              span.tag SD
-              span.tag UNIV
-            li Roman Reigns
-              span.tag SD
-              span.tag UNIV
-        .calendar-section
-          h3 Later This Week
-          ui
-            li Roman Reigns
-              span.tag SD
-              span.tag UNIV
-            li Big E
-              span.tag RAW
-              span.tag UNIV
-            li Roman Reigns
-              span.tag SD
-              span.tag UNIV
-            li Roman Reigns
-              span.tag SD
-              span.tag UNIV
-        .calendar-section
-          h3 Later This Week
-          ui
-            li Roman Reigns
-              span.tag SD
-              span.tag UNIV
-            li Big E
-              span.tag RAW
-              span.tag UNIV
-            li Roman Reigns
-              span.tag SD
-              span.tag UNIV
-            li Roman Reigns
-              span.tag SD
-              span.tag UNIV
-        .calendar-section
-          h3 Later This Week
-          ui
-            li Roman Reigns
-              span.tag SD
-              span.tag UNIV
-            li Big E
-              span.tag RAW
-              span.tag UNIV
-            li Roman Reigns
-              span.tag SD
-              span.tag UNIV
-            li Roman Reigns
-              span.tag SD
-              span.tag UNIV
+          h3 Calendar Filters
+        .calendar-filters
+          ul.calendar-month-filters
+            li(onclick="changeMonth('Jan')") Jan
+            li(onclick="changeMonth('Feb')") Feb
+            li(onclick="changeMonth('Mar')") Mar
+            li(onclick="changeMonth('Apr')") Apr
+            li(onclick="changeMonth('May')") May
+            li(onclick="changeMonth('Jun')") Jun
+            li(onclick="changeMonth('Jul')") Jul
+            li(onclick="changeMonth('Aug')") Aug
+            li(onclick="changeMonth('Sep')") Sep
+            li(onclick="changeMonth('Oct')") Oct
+            li(onclick="changeMonth('Nov')") Nov
+            li(onclick="changeMonth('Dec')") Dec
+          ul.calendar-day-filters
+            li(onclick="changeDay('01')") 1st
+            li(onclick="changeDay('02')") 2nd
+            li(onclick="changeDay('03')") 3rd
+            li(onclick="changeDay('04')") 4th
+            li(onclick="changeDay('05')") 5th
+            li(onclick="changeDay('06')") 6th
+            li(onclick="changeDay('07')") 7th
+            li(onclick="changeDay('08')") 8th
+            li(onclick="changeDay('09')") 9th
+            li(onclick="changeDay('10')") 10th
+            li(onclick="changeDay('11')") 11st
+            li(onclick="changeDay('12')") 12th
+            li(onclick="changeDay('13')") 13th
+            li(onclick="changeDay('14')") 14th
+            li(onclick="changeDay('15')") 15th
+            li(onclick="changeDay('16')") 16th
+            li(onclick="changeDay('17')") 17th
+            li(onclick="changeDay('18')") 18th
+            li(onclick="changeDay('19')") 19th
+            li(onclick="changeDay('20')") 20th
+            li(onclick="changeDay('21')") 21st
+            li(onclick="changeDay('22')") 22nd
+            li(onclick="changeDay('23')") 23rd
+            li(onclick="changeDay('24')") 24th
+            li(onclick="changeDay('25')") 25th
+            li(onclick="changeDay('26')") 26th
+            li(onclick="changeDay('27')") 27th
+            li(onclick="changeDay('28')") 28th
+            li(onclick="changeDay('29')") 29th
+            li(onclick="changeDay('30')") 30th
+            li(onclick="changeDay('31')") 31st
+        h3 On This Date: 
+          span.todays-date
+        ul.calendar-list.on-this-date
       #map
         h2 Map of Title Changes
         .map-section
           #map-element.map
-          p Table of winners to change the map view above
+          p Table of winners to change the map view below.

@@ -84,6 +84,10 @@
     }
   },
   "dependencies": {
-    "lightpick": "^1.6.2"
+    "lightpick": "^1.6.2",
+    "puppeteer": "^13.5.1",
+    "puppeteer-table-scraper": "^1.0.4",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.6"
   }
 }

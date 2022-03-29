@@ -12,7 +12,7 @@ var slideout = new Slideout({
 	'padding': 192,
 	'tolerance': 70
 })
-slideout.open()
+// slideout.open()
 let check = document.querySelector('#check')
 function checkOpen() {
   if (slideout.isOpen()) {
@@ -35,6 +35,7 @@ slideout.on('close', function() {
 // Keystroke Slideout Toggle
 document.addEventListener('keydown', function (event) { 
   if (event.keyCode == '32') {
+    event.preventDefault()
     slideout.toggle()
     checkOpen()
   }
@@ -102,7 +103,6 @@ menuItems.forEach(function(elem){
     contentSection.forEach(function(item) {
       slideout.toggle()
       item.style.display = 'none'
-      console.log(hash)
       document.querySelector(`#${hash}`).style.display = 'block'
       loadMap()
     })

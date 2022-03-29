@@ -1,0 +1,453 @@
+[
+    {
+        "name": "AEW World",
+        "short-name": "world",
+        "promotion": "AEW",
+        "active": true,
+        "tier": "world",
+        "scrape-url": "https://en.wikipedia.org/wiki/AEW_World_Championship",
+        "code": "aew-world"
+    },
+    {
+        "name": "TNT",
+        "short-name": "tnt",
+        "promotion": "AEW",
+        "active": true,
+        "tier": "secondary",
+        "scrape-url": "https://en.wikipedia.org/wiki/AEW_TNT_Championship",
+        "code": "aew-tnt"
+    },
+    {
+        "name": "Tag",
+        "short-name": "tag",
+        "promotion": "AEW",
+        "active": true,
+        "tier": "tag",
+        "scrape-url": "https://en.wikipedia.org/wiki/AEW_World_Tag_Team_Championship",
+        "code": "aew-tag"
+    },
+    {
+        "name": "Women's",
+        "short-name": "womens",
+        "promotion": "AEW",
+        "active": true,
+        "tier": "women",
+        "scrape-url": "https://en.wikipedia.org/wiki/AEW_Women%27s_World_Championship",
+        "code": "aew-womens"
+    },
+    {
+        "name": "TBS",
+        "short-name": "tbs",
+        "promotion": "AEW",
+        "active": true,
+        "tier": "women",
+        "scrape-url": "https://en.wikipedia.org/wiki/AEW_TBS_Championship",
+        "code": "aew-tbs"
+    },   
+    {
+        "name": "Fuck the World",
+        "short-name": "ftw",
+        "promotion": "AEW",
+        "active": true,
+        "tier": "gimmick",
+        "scrape-url": "https://en.wikipedia.org/wiki/FTW_Championship",
+        "code": "aew-ftw"
+    },    
+    {
+        "name": "Champ",
+        "short-name": "champ",
+        "promotion": "WWE",
+        "active": true,
+        "tier": "world",
+        "scrape-url": "https://en.wikipedia.org/wiki/List_of_WWE_Champions",
+        "code": "wwe-champ"
+    },    
+    {
+        "name": "Universal",
+        "short-name": "universal",
+        "promotion": "WWE",
+        "active": true,
+        "tier": "world",
+        "scrape-url": "https://en.wikipedia.org/wiki/WWE_Universal_Championship",
+        "code": "wwe-universal"
+    },    
+    {
+        "name": "WWE World Heavyweight Championship",
+        "short-name": "whc",
+        "promotion": "WWE",
+        "active": false,
+        "tier": "world",
+        "scrape-url": "https://en.wikipedia.org/wiki/List_of_World_Heavyweight_Champions_(WWE)",
+        "code": "wwe-whc"
+    },    
+    {
+        "name": "WWE 24/7",
+        "short-name": "24/7",
+        "promotion": "WWE",
+        "active": true,
+        "tier": "gimmick",
+        "scrape-url": "https://en.wikipedia.org/wiki/List_of_WWE_24/7_Champions",
+        "code": "wwe-247"
+    },    
+    {
+        "name": "Raw Women's",
+        "short-name": "raw-womens",
+        "promotion": "WWE",
+        "active": true,
+        "tier": "women",
+        "scrape-url": "https://en.wikipedia.org/wiki/List_of_WWE_Raw_Women%27s_Champions",
+        "code": "wwe-raw-womens"
+    },    
+    {
+        "name": "SD Women's",
+        "short-name": "sd-womens",
+        "promotion": "WWE",
+        "active": true,
+        "tier": "women",
+        "scrape-url": "https://en.wikipedia.org/wiki/List_of_WWE_SmackDown_Women%27s_Champions",
+        "code": "wwe-sd-womens"
+    },
+    {
+        "name": "European",
+        "short-name": "euro",
+        "promotion": "WWE",
+        "active": false,
+        "tier": "tertiary",
+        "scrape-url": "https://en.wikipedia.org/wiki/List_of_WWE_European_Champions",
+        "code": "wwe-european"
+    },
+    {
+        "name": "Intercontinental",
+        "short-name": "inter",
+        "promotion": "WWE",
+        "active": true,
+        "tier": "secondary",
+        "scrape-url": "https://en.wikipedia.org/wiki/List_of_WWE_Intercontinental_Champions",
+        "code": "wwe-intercontinental"
+    },
+    {
+        "name": "United States",
+        "short-name": "us",
+        "promotion": "WWE",
+        "active": true,
+        "tier": "secondary",
+        "scrape-url": "https://en.wikipedia.org/wiki/List_of_WWE_United_States_Champions",
+        "code": "wwe-us"
+    },
+    {
+        "name": "Raw Tag Team",
+        "short-name": "raw-tag",
+        "promotion": "WWE",
+        "active": true,
+        "tier": "tag",
+        "scrape-url": "https://en.wikipedia.org/wiki/List_of_WWE_Raw_Tag_Team_Champions",
+        "code": "wwe-raw-tag"
+    },
+    {
+        "name": "SmackDown Tag Team",
+        "short-name": "sd-tag",
+        "promotion": "WWE",
+        "active": true,
+        "tier": "tag",
+        "scrape-url": "https://en.wikipedia.org/wiki/List_of_WWE_SmackDown_Tag_Team_Champions",
+        "code": "wwe-sd-tag"
+    },
+    {
+        "name": "Women's Tag Team",
+        "short-name": "womens-tag",
+        "promotion": "WWE",
+        "active": true,
+        "tier": "tag",
+        "scrape-url": "https://en.wikipedia.org/wiki/WWE_Women%27s_Tag_Team_Championship#Reigns",
+        "code": "wwe-womens-tag"
+    },
+    {
+        "name": "Hardcore",
+        "short-name": "hc",
+        "promotion": "WWE",
+        "active": false,
+        "tier": "tertiary",
+        "scrape-url": "https://en.wikipedia.org/wiki/List_of_WWE_Hardcore_Champions",
+        "code": "wwe-hc"
+    },
+    {
+        "name": "World Tag",
+        "short-name": "world-tag",
+        "promotion": "WWE",
+        "active": false,
+        "tier": "tag",
+        "scrape-url": "https://en.wikipedia.org/wiki/List_of_World_Tag_Team_Champions_(WWE)",
+        "code": "wwe-world-tag"
+    },
+    {
+        "name": "WCW Tag Team",
+        "short-name": "wcw-tag",
+        "promotion": "WWE",
+        "active": false,
+        "tier": "tag",
+        "scrape-url": "https://en.wikipedia.org/wiki/List_of_WCW_World_Tag_Team_Champions",
+        "code": "wcw-tag"
+    },
+    {
+        "name": "Light Heavyweight",
+        "short-name": "lhw",
+        "promotion": "WWE",
+        "active": false,
+        "tier": "tertiary",
+        "scrape-url": "https://en.wikipedia.org/wiki/List_of_WWF_Light_Heavyweight_Champions",
+        "code": "wwe-lhw"
+    },
+    {
+        "name": "Womens",
+        "short-name": "womens",
+        "promotion": "WWE",
+        "active": false,
+        "tier": "womens",
+        "scrape-url": "https://en.wikipedia.org/wiki/List_of_WWE_Women%27s_Champions",
+        "code": "wwe-womens"
+    },
+    {
+        "name": "Divas",
+        "short-name": "divas",
+        "promotion": "WWE",
+        "active": false,
+        "tier": "womens",
+        "scrape-url": "https://en.wikipedia.org/wiki/List_of_WWE_Divas_Champions",
+        "code": "wwe-divas"
+    },
+    
+    {
+        "name": "WCW World",
+        "short-name": "world",
+        "promotion": "WCW",
+        "active": false,
+        "tier": "world",
+        "scrape-url": "https://en.wikipedia.org/wiki/List_of_WCW_World_Heavyweight_Champions",
+        "code": "wcw-world"
+    },
+    {
+        "name": "Television",
+        "short-name": "tv",
+        "promotion": "WCW",
+        "active": false,
+        "tier": "tertiary",
+        "scrape-url": "https://en.wikipedia.org/wiki/List_of_WCW_World_Television_Champions",
+        "code": "wcw-tv"
+    },
+    {
+        "name": "Champ",
+        "short-name": "champ",
+        "promotion": "NXT",
+        "active": true,
+        "tier": "secondary",
+        "scrape-url": "https://en.wikipedia.org/wiki/List_of_NXT_Champions",
+        "code": "nxt-champ"
+    },
+    {
+        "name": "Women's",
+        "short-name": "womens",
+        "promotion": "NXT",
+        "active": true,
+        "tier": "womens",
+        "scrape-url": "https://en.wikipedia.org/wiki/NXT_Women%27s_Championship",
+        "code": "nxt-womens"
+    },
+    {
+        "name": "North American",
+        "short-name": "na",
+        "promotion": "NXT",
+        "active": false,
+        "tier": "teriary",
+        "scrape-url": "https://en.wikipedia.org/wiki/List_of_NXT_North_American_Champions",
+        "code": "nxt-na"
+    },
+    {
+        "name": "Tag Team",
+        "short-name": "tag",
+        "promotion": "NXT",
+        "active": true,
+        "tier": "tag",
+        "scrape-url": "https://en.wikipedia.org/wiki/List_of_NXT_Tag_Team_Champions",
+        "code": "nxt-tag"
+    },
+    {
+        "name": "Women's Tag Team",
+        "short-name": "womens-tag",
+        "promotion": "NXT",
+        "active": true,
+        "tier": "tag",
+        "scrape-url": "https://en.wikipedia.org/wiki/NXT_Women%27s_Tag_Team_Championship",
+        "code": "nxt-womens-tag"
+    },
+    {
+        "name": "Cruiserweight",
+        "short-name": "cruise",
+        "promotion": "NXT",
+        "active": false,
+        "tier": "tertiary",
+        "scrape-url": "https://en.wikipedia.org/wiki/List_of_NXT_Cruiserweight_Champions",
+        "code": "nxt-cruise"
+    },
+    {
+        "name": "Million Dollar",
+        "short-name": "mill",
+        "promotion": "NXT",
+        "active": false,
+        "tier": "gimmick",
+        "scrape-url": "https://en.wikipedia.org/wiki/Million_Dollar_Championship",
+        "code": "nxt-mill"
+    },
+    {
+        "name": "World Heavyweight",
+        "short-name": "iwgp-whc",
+        "promotion": "NJPW",
+        "active": true,
+        "tier": "world",
+        "scrape-url": "https://en.wikipedia.org/wiki/IWGP_World_Heavyweight_Championship#Reigns",
+        "code": "njpw-whc"
+    },
+    {
+        "name": "United States",
+        "short-name": "us",
+        "promotion": "NJPW",
+        "active": true,
+        "tier": "secondary",
+        "scrape-url": "https://en.wikipedia.org/wiki/IWGP_United_States_Heavyweight_Championship#Reigns",
+        "code": "njpw-us"
+    },
+    {
+        "name": "Tag Team",
+        "short-name": "tag",
+        "promotion": "NJPW",
+        "active": true,
+        "tier": "tag",
+        "scrape-url": "https://en.wikipedia.org/wiki/List_of_IWGP_Tag_Team_Champions#Title_history",
+        "code": "njpw-tag"
+    },
+    {
+        "name": "Junior Heavyweight",
+        "short-name": "jhwc",
+        "promotion": "NJPW",
+        "active": true,
+        "tier": "secondary",
+        "scrape-url": "https://en.wikipedia.org/wiki/IWGP_Junior_Heavyweight_Championship#Reigns",
+        "code": "njpw-jhwc"
+    },
+    {
+        "name": "Junior Tag Team",
+        "short-name": "j-tag",
+        "promotion": "NJPW",
+        "active": true,
+        "tier": "tag",
+        "scrape-url": "https://en.wikipedia.org/wiki/List_of_IWGP_Junior_Heavyweight_Tag_Team_Champions#Title_history",
+        "code": "njpw-jtag"
+    },
+    {
+        "name": "NEVER Openweight",
+        "short-name": "never-ow",
+        "promotion": "NJPW",
+        "active": true,
+        "tier": "tertiary",
+        "scrape-url": "https://en.wikipedia.org/wiki/List_of_NEVER_Openweight_Champions#Title_history",
+        "code": "njpw-now"
+    },
+    {
+        "name": "Strong Openweight",
+        "short-name": "strong",
+        "promotion": "NJPW",
+        "active": true,
+        "tier": "tertiary",
+        "scrape-url": "https://en.wikipedia.org/wiki/Strong_Openweight_Championship#Title_history",
+        "code": "njpw-strong"
+    },
+    {
+        "name": "NEVER 6-Man",
+        "short-name": "never-6m",
+        "promotion": "NJPW",
+        "active": true,
+        "tier": "tag",
+        "scrape-url": "https://en.wikipedia.org/wiki/List_of_NEVER_Openweight_6-Man_Tag_Team_Champions#Title_history",
+        "code": "njpw-n6m"
+    },
+    {
+        "name": "KOPW",
+        "short-name": "kopw",
+        "promotion": "NJPW",
+        "active": true,
+        "tier": "tertiary",
+        "scrape-url": "https://en.wikipedia.org/wiki/KOPW_(professional_wrestling_championship)#Reigns",
+        "code": "njpw-kopw"
+    },
+    {
+        "name": "World",
+        "short-name": "world",
+        "promotion": "NJPW",
+        "active": false,
+        "tier": "world",
+        "scrape-url": "https://en.wikipedia.org/wiki/IWGP_Heavyweight_Championship#Reigns",
+        "code": "njpw-world"
+    },
+    {
+        "name": "ECW",
+        "short-name": "ECW",
+        "promotion": "WWE",
+        "active": false,
+        "tier": "world",
+        "scrape-url": "https://en.wikipedia.org/wiki/List_of_ECW_World_Heavyweight_Champions",
+        "code": "wwe-ecw"
+    },
+    {
+        "name": "Television",
+        "short-name": "tv",
+        "promotion": "ECW",
+        "active": false,
+        "tier": "secondary",
+        "scrape-url": "https://en.wikipedia.org/wiki/List_of_ECW_World_Television_Champions",
+        "code": "ecw-tv"
+    },
+    {
+        "name": "Tag Team",
+        "short-name": "tag",
+        "promotion": "ECW",
+        "active": false,
+        "tier": "tag",
+        "scrape-url": "https://en.wikipedia.org/wiki/List_of_ECW_World_Tag_Team_Champions",
+        "code": "ecw-tag"
+    },
+    {
+        "name": "United Kingdom",
+        "short-name": "uk",
+        "promotion": "NXTUK",
+        "active": true,
+        "tier": "secondary",
+        "scrape-url": "https://en.wikipedia.org/wiki/NXT_United_Kingdom_Championship",
+        "code": "nxtuk-uk"
+    },
+    {
+        "name": "UK Women's",
+        "short-name": "womens",
+        "promotion": "NXTUK",
+        "active": true,
+        "tier": "womens",
+        "scrape-url": "https://en.wikipedia.org/wiki/NXT_UK_Women%27s_Championship",
+        "code": "nxtuk-womens"
+    },
+    {
+        "name": "UK Tag Team",
+        "short-name": "tag",
+        "promotion": "NXTUK",
+        "active": true,
+        "tier": "tag",
+        "scrape-url": "https://en.wikipedia.org/wiki/NXT_UK_Tag_Team_Championship",
+        "code": "nxtuk-tag"
+    },
+    {
+        "name": "World",
+        "short-name": "world",
+        "promotion": "NWA",
+        "active": true,
+        "tier": "world",
+        "scrape-url": "https://en.wikipedia.org/wiki/List_of_NWA_World_Heavyweight_Champions",
+        "code": "nwa-world"
+    }
+]

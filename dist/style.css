@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Lexend&family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lexend&family=Roboto&family=Roboto+Mono&display=swap");
 * {
   margin: 0;
   padding: 0; }
@@ -43,8 +43,8 @@ input {
 
 .pizza-button {
   position: absolute;
-  bottom: 1em;
-  right: 1em;
+  bottom: 0.5em;
+  right: 0.5em;
   z-index: 3;
   display: grid;
   place-items: center; }
@@ -305,17 +305,148 @@ main {
 .main-inside {
   height: calc(100% - 2.5rem);
   overflow-y: scroll;
-  padding-bottom: 4rem;
-  padding-left: 3rem; }
+  padding: 0 3rem 4rem; }
   .main-inside .current-company,
   .main-inside .calendar-section,
   .main-inside .ranks-section,
   .main-inside .changes-section,
   .main-inside .map-section {
-    padding: 1rem; }
+    padding: 0.5rem; }
   .main-inside li {
     margin: 0.25em 0;
     list-style-type: none; }
+
+#current {
+  display: flex;
+  flex-wrap: wrap; }
+
+#map-section {
+  display: grid;
+  place-items: center; }
+
+.map {
+  height: 70vh;
+  width: 100%; }
+
+.main-content > div {
+  scroll-margin-top: 200px;
+  display: none; }
+
+.active-champs {
+  margin-left: 0.5rem; }
+  .active-champs p {
+    margin-bottom: 1rem; }
+
+.changes-table {
+  padding: 0.5rem;
+  overflow: auto; }
+  .changes-table strong {
+    display: block;
+    text-align: center; }
+  .changes-table * {
+    user-select: none; }
+
+.changes-table > div {
+  display: flex;
+  flex-wrap: wrap;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid whitesmoke;
+  justify-content: center;
+  width: 100%;
+  margin-top: 1rem; }
+  .changes-table > div .title {
+    flex-basis: 45%;
+    text-align: right; }
+  .changes-table > div .date {
+    flex-basis: 50%;
+    font-family: 'Roboto Mono', monospace;
+    color: #daa520;
+    font-size: 0.9rem; }
+  .changes-table > div .name {
+    width: 70%;
+    margin: 1rem auto;
+    text-align: center;
+    font-size: 1rem; }
+  .changes-table > div .location {
+    flex-basis: 45%;
+    text-align: right; }
+  .changes-table > div .event {
+    flex-basis: 50%;
+    display: flex; }
+  .changes-table > div .date:before, .changes-table > div .event:before {
+    content: '/';
+    margin: 0 1rem;
+    color: whitesmoke; }
+  .changes-table > div .location, .changes-table > div .event {
+    font-size: 0.8rem; }
+
+@media (max-width: 660px) {
+  .changes-entry {
+    flex-direction: column;
+    align-items: center !important;
+    gap: 1rem; }
+    .changes-entry > div {
+      flex-basis: 100% !important;
+      font-size: 0.7rem !important; }
+    .changes-entry .date {
+      font-size: 0.8rem !important; }
+    .changes-entry .name {
+      width: 100% !important;
+      font-size: 1.1rem !important; }
+    .changes-entry .event {
+      text-align: center; }
+    .changes-entry .date:before, .changes-entry .event:before {
+      display: none; } }
+
+.todays-date {
+  color: #daa520; }
+
+.calendar-filters {
+  gap: 2rem;
+  margin: 2rem 0.5rem;
+  width: 300px; }
+  .calendar-filters .calendar-month-filters {
+    color: #daa520;
+    display: flex;
+    flex-wrap: wrap; }
+    .calendar-filters .calendar-month-filters:disabled {
+      background: green; }
+  .calendar-filters .calendar-day-filters {
+    display: flex;
+    flex-wrap: wrap; }
+  .calendar-filters li {
+    flex-basis: 15%;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 2rem;
+    margin-right: 1rem;
+    cursor: pointer; }
+  .calendar-filters .inactive {
+    text-decoration: line-through;
+    pointer-events: none; }
+
+.calendar-list {
+  margin-top: 1rem; }
+  .calendar-list li {
+    margin: 1.75rem 0;
+    display: flex;
+    flex-wrap: wrap; }
+    .calendar-list li .calendar-year {
+      width: 60px; }
+    .calendar-list li .calendar-title {
+      width: 70%; }
+    .calendar-list li .calendar-name {
+      width: 100%;
+      margin-left: 4rem;
+      margin-top: 0.75rem; }
+
+@media (max-width: 650px) {
+  .calendar-list li .calendar-year {
+    margin-right: 0.25rem; }
+  .calendar-list li .calendar-name {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 0.75rem; } }
 
 .tag {
   font-size: 0.5rem;
@@ -329,22 +460,205 @@ main {
   display: inline;
   padding-left: 0.3rem; }
 
-#current {
-  display: flex;
-  flex-wrap: wrap; }
+.aew-tag {
+  background: #c3aa50;
+  border: 1px solid #c3aa50;
+  color: #151514; }
 
-#map-section {
-  display: grid;
-  place-items: center; }
+.wwe-tag {
+  background: #d7182a;
+  color: #fff;
+  border: 1px solid #fff; }
 
-.map {
-  height: 400px;
-  width: 70%; }
+.wcw-tag {
+  background: #d19d3a;
+  color: #0e0fff;
+  border: 1px solid #5a4a44; }
 
-#current,
-#ranks,
-#changes,
-#calendar,
-#map {
-  scroll-margin-top: 200px;
-  display: none; }
+.nwa-tag {
+  background: #fcb431;
+  color: #131313;
+  border: 1px solid #131313; }
+
+.ecw-tag {
+  background: #110410;
+  color: #9a04c7;
+  border: 1px solid #ea070b; }
+
+.nxt-tag {
+  background: #fbf90d;
+  color: #9a04c7;
+  border: 1px solid #1644e1; }
+
+.njpw-tag {
+  background: #020003;
+  color: #fbd910;
+  border: 1px solid #fe160a; }
+
+.nxtuk-tag {
+  background: #fff;
+  color: #040404;
+  border: 1px solid #cebd92; }
+
+.aew-world-tag {
+  color: #c3aa50;
+  background: #151514; }
+
+.aew-tnt-tag {
+  background: #f90338;
+  color: #fff; }
+
+.aew-tag-tag {
+  background: #151514;
+  color: #fff; }
+
+.aew-womens-tag {
+  background: #fff;
+  color: #151514; }
+
+.aew-tbs-tag {
+  background: #01cdec;
+  color: #151514; }
+
+.aew-ftw-tag, .ecw-ftw-tag {
+  color: #1e1210;
+  background: #c45414;
+  border: 1px solid #1e1210; }
+
+.wwe-champ-tag {
+  background: #fff;
+  color: #d7182a; }
+
+.wwe-universal-tag {
+  background: #fff;
+  color: #212648; }
+
+.wwe-whc-tag {
+  background: #9f8140;
+  color: #d9bb7d; }
+
+.wwe-247-tag {
+  background: #246238;
+  border: 1px solid #b18847;
+  color: #fff; }
+
+.wwe-raw-womens-tag {
+  background: #e4ddd7;
+  color: #971b1c; }
+
+.wwe-sd-womens-tag {
+  background: #e4ddd7;
+  color: #293a5c; }
+
+.wwe-euro-tag {
+  background: #008cf6;
+  color: #f2f2dc; }
+
+.wwe-inter-tag {
+  background: #fff;
+  color: #b18847; }
+
+.wwe-us-tag {
+  background: #7d2c23;
+  color: #ebe7e4; }
+
+.wwe-raw-tag-tag {
+  background: #7e1024;
+  color: #c8c6c6; }
+
+.wwe-sd-tag-tag {
+  background: #1b3960;
+  color: #c8c6c6; }
+
+.wwe-womens-tag-tag {
+  background: #e4ddd7;
+  color: #293a5c; }
+
+.wwe-hc-tag {
+  background: #663e32;
+  color: #edeceb; }
+
+.wwe-world-tag {
+  background: #1e1914;
+  color: #e8e8e6;
+  border: 1px solid #df3d2f; }
+
+.wwe-wcw-tag, .wcw-tag-tag {
+  background: #1e2320;
+  color: #eeeee0;
+  border: 1px solid #0e94dd; }
+
+.wwe-lhw-tag {
+  background: #293123;
+  color: #c8bb5b;
+  border: 1px solid #277297; }
+
+.wwe-womens-tag {
+  background: #271e19;
+  color: #ebd79c;
+  border: 1px solid #f40601; }
+
+.wwe-divas-tag {
+  background: #282727;
+  color: #d6cdcf;
+  border: 1px solid #9c3a60; }
+
+.wcw-us-tag {
+  background: #fff;
+  color: #e04f59;
+  border: 1px solid #599bd0; }
+
+.wcw-world-tag {
+  background: #92783c;
+  color: #201b10;
+  border: 1px solid #e5e4e0; }
+
+.wcw-tv-tag {
+  background: #4e517c;
+  color: #e6c48d;
+  border: 1px solid #504038; }
+
+.nxt-champ-tag {
+  background: #caac73;
+  color: #26221e;
+  border: 1px solid #26221e; }
+
+.ecw-world-tag {
+  background: #f3d08c;
+  color: #1cace8;
+  border: 1px solid #34322d; }
+
+.ecw-tv-tag {
+  background: #2596be;
+  color: #dabb8c;
+  border: 1px solid #1d1816; }
+
+.ecw-tag-tag {
+  background: #c72214;
+  color: #e4d4bd;
+  border: 1px solid #211813; }
+
+.nxtuk-uk-tag {
+  background: #2c231b;
+  color: #e2d4ba;
+  border: 1px solid #d91d19; }
+
+.nxtuk-tag-tag {
+  background: #23201e;
+  color: #dcc49b;
+  border: 1px solid #3a5464; }
+
+.nxtuk-womens-tag {
+  background: #dfdacf;
+  color: #372715;
+  border: 1px solid #983e2e; }
+
+.nwa-us-tag {
+  background: #e6e8d8;
+  color: #711c2d;
+  border: 1px solid #2456a3; }
+
+.nwa-world-tag {
+  background: #c7ad70;
+  color: #4a3a24;
+  border: 1px solid #15110c; }
