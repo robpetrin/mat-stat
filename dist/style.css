@@ -27,6 +27,18 @@ h2 {
   padding: 0.5rem 0.5rem;
   margin-bottom: 1rem; }
 
+h2 {
+  position: relative; }
+
+h2:after {
+  content: '';
+  position: absolute;
+  background: white;
+  height: 2px;
+  width: 60vw;
+  left: 0;
+  bottom: 0; }
+
 input {
   font-family: inherit;
   border: 0;
@@ -306,12 +318,18 @@ main {
   height: calc(100% - 2.5rem);
   overflow-y: scroll;
   padding: 0 3rem 4rem; }
-  .main-inside .current-company,
-  .main-inside .calendar-section,
+  .main-inside #current,
+  .main-inside #calendar,
   .main-inside .ranks-section,
   .main-inside .changes-section,
   .main-inside .map-section {
     padding: 0.5rem; }
+    .main-inside #current *,
+    .main-inside #calendar *,
+    .main-inside .ranks-section *,
+    .main-inside .changes-section *,
+    .main-inside .map-section * {
+      user-select: none; }
   .main-inside li {
     margin: 0.25em 0;
     list-style-type: none; }
@@ -339,9 +357,20 @@ main {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem; }
+  .active-champs .date {
+    flex-basis: 75px;
+    text-align: center; }
+  .active-champs .title {
+    flex-basis: 150px; }
   .active-champs .name {
     color: #daa520;
     word-wrap: break-word; }
+
+.average-reign {
+  padding-top: 1rem;
+  margin-top: 1rem;
+  margin-left: 1rem;
+  border-top: 1px solid whitesmoke; }
 
 .current-direction {
   font-size: 1rem;

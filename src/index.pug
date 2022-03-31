@@ -32,36 +32,36 @@ nav#menu
         .icon 
           i.fa-solid.fa-map-location-dot
         span Map
-    //- li.yellow
-    //-   .filters-title
-    //-     .filters-icon
-    //-       .icon.active
-    //-         i.fa-solid.fa-filter
-    //-       .icon
-    //-         i.fa-solid.fa-times
-    //-     span Filters
-    //-   .filters-drawer
-    //-     .filters.date
-    //-       p Dates
-    //-       .date-start
-    //-         span Start
-    //-         input#filter-start(placeholder="Date")
-    //-       .date-end
-    //-         span End
-    //-         input#filter-end(placeholder="Date")
-    //-     .filters.promotions
-    //-       p Feds
-    //-       .promotion-tags
-    //-         .promotion-tag#wwe WWE
-    //-         .promotion-tag#nxt NXT
-    //-         .promotion-tag#aew AEW
-    //-         .promotion-tag#njpw NJPW
-    //-         .promotion-tag#impact Impact
-    //-         .promotion-tag#nxtuk NXT UK
-    //-     .filters.cities
-    //-       p Cities
-    //-       input.cities-input(placeholder="Search City Name")#city-search
-    //-     .filters-reset#reset-button Reset
+    li.yellow
+      .filters-title
+        .filters-icon
+          .icon.active
+            i.fa-solid.fa-filter
+          .icon
+            i.fa-solid.fa-times
+        span Filters
+      .filters-drawer
+        .filters.date
+          p Dates
+          .date-start
+            span Start
+            input#filter-start(placeholder="Date")
+          .date-end
+            span End
+            input#filter-end(placeholder="Date")
+        .filters.promotions
+          p Feds
+          .promotion-tags
+            .promotion-tag#wwe WWE
+            .promotion-tag#nxt NXT
+            .promotion-tag#aew AEW
+            .promotion-tag#njpw NJPW
+            .promotion-tag#impact Impact
+            .promotion-tag#nxtuk NXT UK
+        .filters.cities
+          p Cities
+          input.cities-input(placeholder="Search City Name")#city-search
+        .filters-reset#reset-button Reset
 
 main#panel
   label.toggle(for='check' title="Spacebar also works!")
@@ -78,6 +78,7 @@ main#panel
         h2#h2 Current Champions
           span(onclick="drawActiveBoard()").current-direction Show Longest Reigns First
         .active-champs
+        .average-reign
       #ranks
         h2 Rankings
       #changes
@@ -87,7 +88,7 @@ main#panel
         h2 Calendar
         .calendar-main
           .calendar-filters
-            h3 Calendar Filters
+            h3 Pick a Date
             ul.calendar-month-filters
               li(onclick="changeMonth('Jan')") Jan
               li(onclick="changeMonth('Feb')") Feb

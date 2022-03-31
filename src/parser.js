@@ -4,6 +4,14 @@ let ranks = []
 let map = []
 let current = []
 let active = []
+let averageReign = 0
+setTimeout(function() {
+    if (averageReign > 0) {
+        let averageReignElem = document.querySelector('.average-reign')
+        let averageTime = Math.floor(averageReign / active.length)
+        averageReignElem.innerText = `Average reign length: ${averageTime} days`
+    }
+},1000)
 
 let dateObj = {
     month: moment().format('MMM'),
@@ -103,6 +111,7 @@ fetch('./changes.json')
     
     calendar = JSON.parse(JSON.stringify(data))
     ranks = JSON.parse(JSON.stringify(data))
+    
     map = JSON.parse(JSON.stringify(data))
     
 })
@@ -330,5 +339,8 @@ function drawActiveBoard() {
         entry.appendChild(champName)
         
         activeChamps.appendChild(entry)
+    })
+    active.forEach(function(each){
+        averageReign += each.daysSince
     })
 }

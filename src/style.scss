@@ -35,6 +35,18 @@ h2 {
   padding: 0.5rem 0.5rem;
   margin-bottom: 1rem;
 }
+h2 {
+  position: relative;
+}
+h2:after {
+  content: '';
+  position: absolute;
+  background: white;
+  height: 2px;
+  width: 60vw;
+  left: 0;
+  bottom: 0;
+}
 input {
   font-family: inherit;
   border: 0;
@@ -376,12 +388,15 @@ main {
   height: calc(100% - 2.5rem);
   overflow-y: scroll;
   padding: 0 3rem 4rem;
-  .current-company,
-  .calendar-section,
+  #current,
+  #calendar,
   .ranks-section,
   .changes-section,
   .map-section {
     padding: 0.5rem;
+    * {
+      user-select: none;
+    }
   }
   li {
     margin: 0.25em 0;
@@ -418,10 +433,23 @@ main {
     flex-wrap: wrap;
     gap: 1rem;
   }
+  .date {
+    flex-basis: 75px;
+    text-align: center;
+  }
+  .title {
+    flex-basis: 150px;
+  }
   .name {
     color: $goldenrod;
     word-wrap: break-word;
   }
+}
+.average-reign {
+  padding-top: 1rem;
+  margin-top: 1rem;
+  margin-left: 1rem;
+  border-top: 1px solid $white;
 }
 
 .current-direction {
