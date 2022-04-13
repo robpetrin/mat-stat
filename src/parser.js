@@ -9,7 +9,7 @@ setTimeout(function() {
     if (averageReign > 0) {
         let averageReignElem = document.querySelector('.average-reign')
         let averageTime = Math.floor(averageReign / active.length)
-        averageReignElem.innerText = `Average reign length: ${averageTime} days`
+        averageReignElem.innerText = `Average reign: ${averageTime} days`
     }
 },1000)
 
@@ -23,6 +23,12 @@ fetch('./changes.json')
 .then(data => {
 
     data.forEach(function(item) {
+        if (item['Champion'].includes('(')) {
+            let regex = /\(([^()]*)\)/g
+            item['Champion'] = item['Champion'].replace(regex,'')
+            item['Champion'] = item['Champion'].replace(regex,'')
+        }
+
         if (item['Championship_change_Date'].includes('or ')) {
             item['Championship_change_Date'] = item['Championship_change_Date'].replace('or 26','')
         }
@@ -129,13 +135,14 @@ fetch('./per-title.json')
     active.forEach(function(each){
         let changeDate = moment(each['Championship_change_Date']).format("DD MMM YYYY")
         each.daysSince = countDays(changeDate)
-        console.log(each.daysSince)
+        // console.log(each.daysSince)
     })
     drawActiveBoard(true)
 })
 
 setTimeout(function(){
     changes.forEach(function(change, index) {
+
         let changesContainer = document.querySelector('.changes-table')
 
         let entry = document.createElement('div')
@@ -301,16 +308,23 @@ function drawActiveBoard() {
     currentDrawDirection = !currentDrawDirection
     if (currentDrawDirection) {
         active = active.sort((a, b) => (a.daysSince < b.daysSince) ? 1 : -1)
-        currentDirection.innerText = 'Show Shortest Reigns First'
+        currentDirection.innerText = 'Sort by Most Recent'
     } else {
         active = active.sort((a, b) => (a.daysSince > b.daysSince) ? 1 : -1)
-        currentDirection.innerText = 'Show Longest Reigns First'
+        currentDirection.innerText = 'Sort by Least Recent'
     }
-    let activeChamps = document.querySelector('.active-champs')
+    let activeChamps = document.querySelector('.active-champs-inner')
     while (activeChamps.firstChild) {
         activeChamps.firstChild.remove()
     }
     active.forEach(function(each){
+
+        if (each['Champion'].includes('(')) {
+            let regex = /\(([^()]*)\)/g
+            each['Champion'] = each['Champion'].replace(regex,'')
+            each['Champion'] = each['Champion'].replace(regex,'')
+        }
+
         let entry = document.createElement('div')
         entry.classList.add('active-entry')
         

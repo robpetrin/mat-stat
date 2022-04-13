@@ -13,181 +13,6 @@
 <!-- partial:index.partial.html -->
 <div class="pizza-button"><a href="https://www.buymeacoffee.com/robpetrin" target="_blank" title="Buy me a pizza!"> 
     <button><i class="fa-solid fa-pizza-slice"></i></button></a></div>
-<nav id="menu">
-  <div class="logo-wrap"><img src="https://assets.codepen.io/1004111/481414-200.svg"/></div>
-  <ul class="menu">
-    <li> 
-      <icon> <i class="fas fa-hand-point-down"></i></icon><span>Current</span>
-    </li>
-    <li> 
-      <icon> <i class="fa-solid fa-medal"></i></icon><span>Ranks</span>
-    </li>
-    <li> 
-      <icon> <i class="fa-solid fa-arrows-rotate"></i></icon><span>Changes</span>
-    </li>
-    <li> 
-      <icon> <i class="fa-solid fa-calendar-days"></i></icon><span>Calendar</span>
-    </li>
-    <li> 
-      <icon> <i class="fa-solid fa-map-location-dot"></i></icon><span>Map</span>
-    </li>
-    <li class="yellow">
-      <icon><i class="fa-solid fa-filter"></i></icon><span>Filters</span>
-      <div class="filters-drawer">
-        <div class="filters date"> 
-          <p>Dates</p>
-          <div class="date-start"></div>
-          <div class="date-end"></div>
-        </div>
-        <div class="filters promotions">
-          <p>Feds</p>
-          <div class="promotion-tags">
-            <div class="promotion-tag" id="wwe">WWE</div>
-            <div class="promotion-tag" id="aew">AEW</div>
-            <div class="promotion-tag" id="impact">Impact</div>
-            <div class="promotion-tag" id="njpw">NJPW</div>
-          </div>
-        </div>
-        <div class="filters cities">
-          <p>Cities</p>
-          <input class="cities-input"/>
-        </div>
-        <div class="filters-reset">Reset</div>
-      </div>
-    </li>
-  </ul>
-</nav>
-<main id="panel">
-  <label class="toggle" for="check" title="Spacebar also works!">
-    <input id="check" type="checkbox" onclick="slideout.toggle()"/><span></span><span></span><span></span>
-  </label>
-  <div class="main-inside" onclick="closeIcon()">
-    <h1>Matstat<span class="tag">beta</span></h1>
-    <p style="margin-left: 0.5rem; margin: -0.5rem 0.5rem 2rem">Professional wrestling title change database</p>
-    <h2 id="h2">Current Champions</h2>
-    <div id="current">
-      <div class="current-company">
-        <h3>WWE</h3>
-        <ui>
-          <li>Roman Reigns<span class="tag">SD</span><span class="tag">UNIV</span></li>
-          <li>Big E<span class="tag">RAW</span><span class="tag">UNIV</span></li>
-          <li>Roman Reigns<span class="tag">SD</span><span class="tag">UNIV</span></li>
-          <li>Roman Reigns<span class="tag">SD</span><span class="tag">UNIV</span></li>
-          <li>Roman Reigns<span class="tag">SD</span><span class="tag">UNIV</span></li>
-          <li>Roman Reigns<span class="tag">SD</span><span class="tag">UNIV</span></li>
-          <li>Roman Reigns<span class="tag">SD</span><span class="tag">UNIV</span></li>
-          <li>Roman Reigns<span class="tag">SD</span><span class="tag">UNIV</span></li>
-          <li>Roman Reigns<span class="tag">SD</span><span class="tag">UNIV</span></li>
-          <li>Roman Reigns<span class="tag">SD</span><span class="tag">UNIV</span></li>
-          <li>Roman Reigns<span class="tag">SD</span><span class="tag">UNIV</span></li>
-        </ui>
-      </div>
-      <div class="current-company">
-        <h3>AEW</h3>
-        <ui>
-          <li>Roman Reigns<span class="tag">SD</span><span class="tag">UNIV</span></li>
-          <li>Roman Reigns<span class="tag">SD</span><span class="tag">UNIV</span></li>
-          <li>Roman Reigns<span class="tag">SD</span><span class="tag">UNIV</span></li>
-          <li>Roman Reigns<span class="tag">SD</span><span class="tag">UNIV</span></li>
-          <li>Roman Reigns<span class="tag">SD</span><span class="tag">UNIV</span></li>
-          <li>Roman Reigns<span class="tag">SD</span><span class="tag">UNIV</span></li>
-        </ui>
-      </div>
-      <div class="current-company">
-        <h3>NXT</h3>
-        <ui>
-          <li>Roman Reigns<span class="tag">SD</span><span class="tag">UNIV</span></li>
-          <li>Roman Reigns<span class="tag">SD</span><span class="tag">UNIV</span></li>
-          <li>Roman Reigns<span class="tag">SD</span><span class="tag">UNIV</span></li>
-          <li>Roman Reigns<span class="tag">SD</span><span class="tag">UNIV</span></li>
-          <li>Roman Reigns<span class="tag">SD</span><span class="tag">UNIV</span></li>
-          <li>Roman Reigns<span class="tag">SD</span><span class="tag">UNIV</span></li>
-          <li>Roman Reigns<span class="tag">SD</span><span class="tag">UNIV</span></li>
-        </ui>
-      </div>
-      <div class="current-company">
-        <h3>Impact</h3>
-        <ui>
-          <li>Roman Reigns<span class="tag">SD</span><span class="tag">UNIV</span></li>
-          <li>Roman Reigns<span class="tag">SD</span><span class="tag">UNIV</span></li>
-          <li>Roman Reigns<span class="tag">SD</span><span class="tag">UNIV</span></li>
-          <li>Roman Reigns<span class="tag">SD</span><span class="tag">UNIV</span></li>
-          <li>Roman Reigns<span class="tag">SD</span><span class="tag">UNIV</span></li>
-        </ui>
-      </div>
-      <div class="current-company">
-        <h3>NJPW</h3>
-        <ui>
-          <li>Roman Reigns<span class="tag">SD</span><span class="tag">UNIV</span></li>
-          <li>Roman Reigns<span class="tag">SD</span><span class="tag">UNIV</span></li>
-          <li>Roman Reigns<span class="tag">SD</span><span class="tag">UNIV</span></li>
-          <li>Roman Reigns<span class="tag">SD</span><span class="tag">UNIV</span></li>
-          <li>Roman Reigns<span class="tag">SD</span><span class="tag">UNIV</span></li>
-          <li>Roman Reigns<span class="tag">SD</span><span class="tag">UNIV</span></li>
-          <li>Roman Reigns<span class="tag">SD</span><span class="tag">UNIV</span></li>
-          <li>Roman Reigns<span class="tag">SD</span><span class="tag">UNIV</span></li>
-          <li>Roman Reigns<span class="tag">SD</span><span class="tag">UNIV</span></li>
-        </ui>
-      </div>
-      <div class="current-company">
-        <h3>ROH</h3>
-        <ui>
-          <li>Roman Reigns<span class="tag">SD</span><span class="tag">UNIV</span></li>
-          <li>Roman Reigns<span class="tag">SD</span><span class="tag">UNIV</span></li>
-          <li>Roman Reigns<span class="tag">SD</span><span class="tag">UNIV</span></li>
-          <li>Roman Reigns<span class="tag">SD</span><span class="tag">UNIV</span></li>
-          <li>Roman Reigns<span class="tag">SD</span><span class="tag">UNIV</span></li>
-        </ui>
-      </div>
-      <div class="current-company">
-        <h3>NXT UK</h3>
-        <ui>
-          <li>Roman Reigns<span class="tag">SD</span><span class="tag">UNIV</span></li>
-          <li>Roman Reigns<span class="tag">SD</span><span class="tag">UNIV</span></li>
-          <li>Roman Reigns<span class="tag">SD</span><span class="tag">UNIV</span></li>
-          <li>Roman Reigns<span class="tag">SD</span><span class="tag">UNIV</span></li>
-          <li>Roman Reigns<span class="tag">SD</span><span class="tag">UNIV</span></li>
-          <li>Roman Reigns<span class="tag">SD</span><span class="tag">UNIV</span></li>
-        </ui>
-      </div>
-    </div>
-    <div id="ranks"></div>
-    <div id="changes"></div>
-    <div id="calendar">
-      <div class="calendar-section">
-        <h3>On This Date</h3>
-        <ui>
-          <li>Roman Reigns<span class="tag">SD</span><span class="tag">UNIV</span></li>
-          <li>Big E<span class="tag">RAW</span><span class="tag">UNIV</span></li>
-          <li>Roman Reigns<span class="tag">SD</span><span class="tag">UNIV</span></li>
-          <li>Roman Reigns<span class="tag">SD</span><span class="tag">UNIV</span></li>
-        </ui>
-      </div>
-      <div class="calendar-section">
-        <h3>Later This Week</h3>
-        <ui>
-          <li>Roman Reigns<span class="tag">SD</span><span class="tag">UNIV</span></li>
-          <li>Big E<span class="tag">RAW</span><span class="tag">UNIV</span></li>
-          <li>Roman Reigns<span class="tag">SD</span><span class="tag">UNIV</span></li>
-          <li>Roman Reigns<span class="tag">SD</span><span class="tag">UNIV</span></li>
-        </ui>
-      </div>
-      <div class="calendar-section">
-        <h3>Later This Month</h3>
-        <ui>
-          <li>Roman Reigns<span class="tag">SD</span><span class="tag">UNIV</span></li>
-          <li>Big E<span class="tag">RAW</span><span class="tag">UNIV</span></li>
-          <li>Roman Reigns<span class="tag">SD</span><span class="tag">UNIV</span></li>
-          <li>Roman Reigns<span class="tag">SD</span><span class="tag">UNIV</span></li>
-        </ui>
-      </div>
-    </div>
-    <div id="map-section">
-      <div class="map" id="map"></div>
-      <div class="map-list">Table of winners to change the map view above</div>
-    </div>
-  </div>
-</main>
 <!-- partial -->
   <script src='https://cdnjs.cloudflare.com/ajax/libs/slideout/1.0.1/slideout.min.js'></script>
 <script src='https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.9.0/build/ol.js'></script>
@@ -199,11 +24,15 @@
 
 <script> 
   var picker = new Lightpick({
-    field: document.getElementById('filter-start'),
-    secondField: document.getElementById('filter-end'),
+    field: document.getElementById('filter-date'),
+    format: 'MMM DD, YYYY',
     singleDate: false,
-    format: 'MM-DD-YY'
-  });
+    onSelect: function(start, end){
+        var str = '';
+        str += start ? start.format('MMM DD, YYYY') + ' to ' : '';
+        str += end ? end.format('MMM DD, YYYY') : '...';
+    }
+});
 </script>
 </body>
 </html>

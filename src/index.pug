@@ -32,36 +32,6 @@ nav#menu
         .icon 
           i.fa-solid.fa-map-location-dot
         span Map
-    li.yellow
-      .filters-title
-        .filters-icon
-          .icon.active
-            i.fa-solid.fa-filter
-          .icon
-            i.fa-solid.fa-times
-        span Filters
-      .filters-drawer
-        .filters.date
-          p Dates
-          .date-start
-            span Start
-            input#filter-start(placeholder="Date")
-          .date-end
-            span End
-            input#filter-end(placeholder="Date")
-        .filters.promotions
-          p Feds
-          .promotion-tags
-            .promotion-tag#wwe WWE
-            .promotion-tag#nxt NXT
-            .promotion-tag#aew AEW
-            .promotion-tag#njpw NJPW
-            .promotion-tag#impact Impact
-            .promotion-tag#nxtuk NXT UK
-        .filters.cities
-          p Cities
-          input.cities-input(placeholder="Search City Name")#city-search
-        .filters-reset#reset-button Reset
 
 main#panel
   label.toggle(for='check' title="Spacebar also works!")
@@ -71,13 +41,40 @@ main#panel
     span
   .main-inside(onclick='closeIcon()')
     h1 Matstat
-      span.tag beta
-    p(style="margin-left: 0.5rem; margin-bottom: 1rem;") Professional wrestling title change database
+      span.tag beta 
+        span(style="text-transform: lowercase")  v
+        span 0.1
+    p.subhead-top Professional wrestling title change database
+
+    .filters-container
+      .filters-title
+        i.fa-solid.fa-filter.icon-open
+        i.fa-solid.fa-times.icon-close
+        span.show-hide-filters Show
+        span Filters
+      .filters-drawer.open
+        .filters.date
+          input#filter-date(placeholder="Filter by Date Range")
+        .filters.cities
+          input.cities-input(placeholder="Text Filter")#city-search
+        .filters-reset#reset-button Reset
+        .filters.promotions
+          p Feds
+          .promotion-tags
+            .promotion-tag#wwe WWE
+            .promotion-tag#nxt NXT
+            .promotion-tag#aew AEW
+            .promotion-tag#njpw NJPW
+            .promotion-tag#impact Impact
+            .promotion-tag#nxtuk NXT UK
+
     .main-content
       #current
         h2#h2 Current Champions
-          span(onclick="drawActiveBoard()").current-direction Show Longest Reigns First
+          br.hide-big
+          span(onclick="drawActiveBoard()").current-direction Sort by Least Recent
         .active-champs
+          .active-champs-inner
         .average-reign
       #ranks
         h2 Rankings
@@ -137,7 +134,8 @@ main#panel
           .calendar-content
             h3 On This Date: 
               span.todays-date
-            ul.calendar-list.on-this-date
+            .on-this-date-wrap
+              ul.calendar-list.on-this-date
       #map
         h2 Map of Title Changes
         .map-section

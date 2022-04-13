@@ -69,13 +69,13 @@ filterTitle.addEventListener('click',function(elem){
   })
   let filtersDrawer = document.querySelector('.filters-drawer')
   filtersDrawer.classList.toggle('open')
+  filtersDrawer.classList.toggle('closed')
 })
 
 // Filters Reset
 let filtersReset = document.querySelector('#reset-button')
 filtersReset.addEventListener('click',function(elem){
-  document.querySelector('#filter-start').value = ''
-  document.querySelector('#filter-end').value = ''
+  document.querySelector('#filter-date').value = ''
   document.querySelectorAll('.promotion-tag').forEach(function(elem){
     elem.classList.remove('inactive')
   })

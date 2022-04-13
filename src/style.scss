@@ -18,6 +18,7 @@ body {
   font-family: 'Roboto', sans-serif;
   color: $white;
   letter-spacing: 3px;
+  overflow: hidden;
 }
 h1 {
   font-weight: 400;
@@ -37,15 +38,8 @@ h2 {
 }
 h2 {
   position: relative;
-}
-h2:after {
-  content: '';
-  position: absolute;
-  background: white;
-  height: 2px;
-  width: 60vw;
-  left: 0;
-  bottom: 0;
+  border-bottom: 1px solid $white; 
+  z-index: -1;
 }
 input {
   font-family: inherit;
@@ -131,13 +125,14 @@ nav {
   li a.active {
     color: $goldenrod;
   }
-  li:not(.yellow) {
+  li {
     icon {
       margin-left: -1rem;
       margin-right: 0.5rem;
     }
   }
-  .filters-title {
+
+.filters-title {
     display: flex;
     gap: 1rem;
     justify-content: space-between;
@@ -147,124 +142,119 @@ nav {
     & > span {
       margin-left: 2rem;
     }
+}
+.yellow {
+  background: $goldenrod;
+  margin-top: -10rem;
+  margin-left: -1rem;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  .filters-icon {
+    position: relative;
   }
-  .yellow {
-    background: $goldenrod;
-    margin-top: 1rem;
-    margin-left: -1rem;
-    text-align: center;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    .filters-icon {
-      position: relative;
-    }
-    .icon {
-      width: 3.5rem;
-      position: absolute;
-      top: -0.5rem;
-      display: none;
-    }
-    .active {
-      display: block;
-    }
+  .icon {
+    width: 3.5rem;
+    position: absolute;
+    top: -0.5rem;
+    display: none;
+  }
+  .active {
+    display: block;
+  }
+  * {
+    border-color: $goldenrod !important;
+  }
+  &:hover {
+    background: $dark;
+    color: $goldenrod;
     * {
-      border-color: $goldenrod !important;
+      border-color: $dark;
     }
-    &:hover {
-      background: $dark;
-      color: $goldenrod;
-      * {
-        border-color: $dark;
-      }
-      *:after {
-        background: $goldenrod;
-      }
-    }
-    .yellow:hover .filters-reset {
-      color: initial;
-      background: initial;
-    }
-    .icon {
-      flex-basis: 25%;
-    }
-    span {
-      flex-basis: 75%;
+    *:after {
+      background: $goldenrod;
     }
   }
+  .yellow:hover .filters-reset {
+    color: initial;
+    background: initial;
+  }
+  .icon {
+    flex-basis: 25%;
+  }
+  span {
+    flex-basis: 75%;
+  }
 }
+}
+
+.filters-container {
+  background: $goldenrod;
+  max-width: 650px;
+  margin-left: 0.5rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  .show-hide-filters {
+    margin: 0 0.25rem;
+  }
+}
+
 .filters-drawer.open {
-  height: 335px;
-  transition: height 0.5s;
+  height: initial;
+  opacity: 1;
+  display: flex;
+  transition: 0.25s opacity linear, 0.25s height linear 0.25s, 0.25s display linear;
 }
+.filters-drawer.closed {
+  height: 0;
+  opacity: 0;
+  display: none;
+  transition: 0.25s opacity linear, 0.25s height linear 0.25s, 0.25s display linear;
+}
+
 .filters-drawer {
   margin: 1rem auto -1rem;
   flex-basis: 100%;
-  height: 0;
-  transition: height 0.3s;
-  & > * {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
+  background: $goldenrod;
+  display: flex;
+  flex-wrap: wrap;
+  .date, .cities, .filters-reset {
+    flex-basis: 40%;
+    position: relative;
+  }
+  .filters-reset {
+    flex-basis: 20%;
   }
   .filters {
-    text-align: left;
-    position: relative;
     font-size: 0.8rem;
-    &:after {
-      content: '';
-      position: absolute;
-      top: 0.4rem;
-      right: 0;
-      height: 2px;
-      width: 65%;
-      background: $dark;
-    }
-    .date-start, .date-end {
-      display: flex;
-      height: 1.5rem;
-      margin: 0.5rem auto 0;
-      width: 100%;
-      justify-content: center;
-      align-items: center;
-      font-size: 0.8rem;
-      span {
-        text-align: right;
-        margin-right: 0.5rem;
-      }
-      input {
-        width: 75%;
-        font-family: inherit;
-        font-size: inherit;
-        text-transform: uppercase;
-        background: transparent;
-        border: none;
-        border-bottom: 1px solid $dark;
-        color: inherit;
-      }
-    }
-    .cities-input {
-      font-family: inherit;
-      text-transform: uppercase;
-      margin-top: 0.5rem;
-      height: 1.5rem;
-      width: 100%;
-      text-align: center;
+    input {
+      width: 95%;
+      padding-bottom: 2px;
+      border: none;
+      border-bottom: 1px solid $dark;
       background: transparent;
-      border: 0;
-      transition: background 0.3s linear;
+      text-transform: initial;
+      font-family: inherit;
+      font-size: inherit;
+      color: inherit;
     }
   }
 }
 
 .filters-reset {
-  margin-bottom: 0.75rem;;
   background: $goldenrod;
   color: $dark;
   border-radius: 1rem;
-  padding: 0.5rem;
   &:hover {
     background: $white;
     transition: 0.3s background;
   }
+}
+
+.filters.promotions {
+  flex-basis: 100%;
 }
 
 .promotion-tags {
@@ -272,12 +262,13 @@ nav {
   margin-bottom: -0.5rem;
   display: flex;
   flex-wrap: wrap;
-  gap: 7.5%;
+  gap: 1rem;
   .promotion-tag {
-    flex-basis: 40%;
+    flex-basis: 25%;
+    max-width: 75px;
     text-align: center;
     background: transparent;
-    margin-bottom: 0.5rem;
+    margin: 0.25rem 0;
     padding: 0.25rem;
     border-radius: 0.5rem;
     border: 1px solid $dark !important;
@@ -286,18 +277,19 @@ nav {
     opacity: 0.25 !important;
   }
 }
-
+  
 .slideout-menu {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  width: 12em;
-  overflow-y: hidden;
-  -webkit-overflow-scrolling: touch;
-  z-index: 0;
-  display: none;
-  background: $white;
-  font-family: 'Lexend', sans-serif;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 12em;
+    height: 100vh;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    z-index: 0;
+    display: none;
+    background: $white;
+    font-family: 'Lexend', sans-serif;
 }
 .slideout-menu-left {
   left: 0;
@@ -398,6 +390,10 @@ main {
       user-select: none;
     }
   }
+  .subhead-top {
+    margin-left: 0.5rem;
+    margin-bottom: 1rem;
+  }
   li {
     margin: 0.25em 0;
     list-style-type: none;
@@ -425,6 +421,11 @@ main {
 
 .active-champs {
   margin-left: 0.5rem;
+  width: calc(min(100%, 700  px));
+  overflow-x: scroll;
+  .active-champs-inner {
+    width: 850px;
+  }
   p {
     margin-bottom: 1rem;
   }
@@ -432,6 +433,7 @@ main {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
+    margin-bottom: 1rem;
   }
   .date {
     flex-basis: 75px;
@@ -451,7 +453,9 @@ main {
   margin-left: 1rem;
   border-top: 1px solid $white;
 }
-
+br.hide-big {
+  display: none;
+}
 .current-direction {
   font-size: 1rem;
   margin-left: 1rem;
@@ -881,4 +885,13 @@ main {
   background: #c7ad70;
   color: #4a3a24;
   border: 1px solid #15110c;
+}
+
+@media (max-width: 675px) {
+  br.hide-big {
+    display: block;
+  }
+  .current-direction {
+    margin-left: 0;
+  }
 }
