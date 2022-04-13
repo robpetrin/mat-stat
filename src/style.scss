@@ -283,7 +283,7 @@ nav {
     top: 0;
     bottom: 0;
     width: 12em;
-    height: 100vh;
+    height: 100%;
     overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
     z-index: 0;
@@ -424,7 +424,7 @@ main {
   width: calc(min(100%, 700  px));
   overflow-x: scroll;
   .active-champs-inner {
-    width: 850px;
+    width: fit-content;
   }
   p {
     margin-bottom: 1rem;
@@ -442,7 +442,7 @@ main {
   .title {
     flex-basis: 150px;
   }
-  .name {
+  .champion {
     color: $goldenrod;
     word-wrap: break-word;
   }
@@ -894,4 +894,9 @@ br.hide-big {
   .current-direction {
     margin-left: 0;
   }
+  .active-entry .champion {
+    flex-basis: 100%;
+    margin-left: 75px;
+  }
 }
+

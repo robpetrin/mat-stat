@@ -349,6 +349,7 @@ function drawActiveBoard() {
         entry.appendChild(titleElem)
         
         let champName = document.createElement('p')
+        champName.classList.add('champion')
         champName.innerText = each['Champion']
         entry.appendChild(champName)
         
