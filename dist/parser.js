@@ -36,6 +36,10 @@ fetch('./changes.json')
         if (item['Championship_change_Date'].includes('[')) {
             item['Championship_change_Date'] = item['Championship_change_Date'].replace(/\s*\[.*?\]\s*/g,'')
         }
+        if (item['Championship_change_Date'].includes('(')) {
+            let regex = /\(([^()]*)\)/g
+            item['Championship_change_Date'] = moment(item['Championship_change_Date'].replace(regex,''))
+        }
         
         item.sortDate = moment(item['Championship_change_Date']).format("YYYY-MM-DD")
         item.sortYear = moment(item['Championship_change_Date']).format("YYYY")
@@ -133,11 +137,17 @@ fetch('./per-title.json')
         }
     })
     active.forEach(function(each){
+
+        if (each['Championship_change_Date'].includes('(')) {
+            let regex = /\(([^()]*)\)/g
+            each['Championship_change_Date'] = each['Championship_change_Date'].replace(regex,'')
+        }
+
         let changeDate = moment(each['Championship_change_Date']).format("DD MMM YYYY")
+        
         each.daysSince = countDays(changeDate)
-        // console.log(each.daysSince)
     })
-    drawActiveBoard(true)
+    drawActiveBoard()
 })
 
 setTimeout(function(){
@@ -309,9 +319,11 @@ function drawActiveBoard() {
     if (currentDrawDirection) {
         active = active.sort((a, b) => (a.daysSince < b.daysSince) ? 1 : -1)
         currentDirection.innerText = 'Sort by Most Recent'
+        console.log(currentDrawDirection)
     } else {
         active = active.sort((a, b) => (a.daysSince > b.daysSince) ? 1 : -1)
         currentDirection.innerText = 'Sort by Least Recent'
+        console.log(currentDrawDirection)
     }
     let activeChamps = document.querySelector('.active-champs-inner')
     while (activeChamps.firstChild) {

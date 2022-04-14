@@ -39,7 +39,6 @@ h2 {
 h2 {
   position: relative;
   border-bottom: 1px solid $white; 
-  z-index: -1;
 }
 input {
   font-family: inherit;
@@ -205,12 +204,19 @@ nav {
   opacity: 1;
   display: flex;
   transition: 0.25s opacity linear, 0.25s height linear 0.25s, 0.25s display linear;
+  .fa-filter {
+    display: none;
+  }
 }
+
 .filters-drawer.closed {
   height: 0;
   opacity: 0;
   display: none;
   transition: 0.25s opacity linear, 0.25s height linear 0.25s, 0.25s display linear;
+  .fa-times {
+    display: none; 
+  }
 }
 
 .filters-drawer {
@@ -262,7 +268,7 @@ nav {
   margin-bottom: -0.5rem;
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 0.5rem;
   .promotion-tag {
     flex-basis: 25%;
     max-width: 75px;
@@ -423,9 +429,9 @@ main {
   margin-left: 0.5rem;
   width: calc(min(100%, 700  px));
   overflow-x: scroll;
-  .active-champs-inner {
-    width: fit-content;
-  }
+  // .active-champs-inner {
+  //   width: fit-content;
+  // }
   p {
     margin-bottom: 1rem;
   }
@@ -887,7 +893,7 @@ br.hide-big {
   border: 1px solid #15110c;
 }
 
-@media (max-width: 675px) {
+@media (max-width: 700px) {
   br.hide-big {
     display: block;
   }

@@ -30,8 +30,7 @@ h2 {
 
 h2 {
   position: relative;
-  border-bottom: 1px solid whitesmoke;
-  z-index: -1; }
+  border-bottom: 1px solid whitesmoke; }
 
 input {
   font-family: inherit;
@@ -165,12 +164,16 @@ nav {
   opacity: 1;
   display: flex;
   transition: 0.25s opacity linear, 0.25s height linear 0.25s, 0.25s display linear; }
+  .filters-drawer.open .fa-filter {
+    display: none; }
 
 .filters-drawer.closed {
   height: 0;
   opacity: 0;
   display: none;
   transition: 0.25s opacity linear, 0.25s height linear 0.25s, 0.25s display linear; }
+  .filters-drawer.closed .fa-times {
+    display: none; }
 
 .filters-drawer {
   margin: 1rem auto -1rem;
@@ -213,7 +216,7 @@ nav {
   margin-bottom: -0.5rem;
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem; }
+  gap: 0.5rem; }
   .promotion-tags .promotion-tag {
     flex-basis: 25%;
     max-width: 75px;
@@ -345,8 +348,6 @@ main {
   margin-left: 0.5rem;
   width: calc(min(100%, 700  px));
   overflow-x: scroll; }
-  .active-champs .active-champs-inner {
-    width: fit-content; }
   .active-champs p {
     margin-bottom: 1rem; }
   .active-champs .active-entry {
@@ -711,7 +712,7 @@ br.hide-big {
   color: #4a3a24;
   border: 1px solid #15110c; }
 
-@media (max-width: 675px) {
+@media (max-width: 700px) {
   br.hide-big {
     display: block; }
   .current-direction {
