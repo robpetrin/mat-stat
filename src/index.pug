@@ -32,6 +32,11 @@ nav#menu
         .icon 
           i.fa-solid.fa-map-location-dot
         span Map
+    li.menu-item#blog-toggle
+      a
+        .icon 
+          i.fa-solid.fa-blog
+        span Blog
 
 main#panel
   label.toggle(for='check' title="Spacebar also works!")
@@ -48,25 +53,26 @@ main#panel
 
     .filters-container
       .filters-title
-        i.fa-solid.fa-filter.icon-open
-        i.fa-solid.fa-times.icon-close
-        span.show-hide-filters Show
+        i.fa-solid.fa-filter.icon.active
+        i.fa-solid.fa-times.icon
         span Filters
-      .filters-drawer.open
+      .filters-drawer.closed
         .filters.date
           input#filter-date(placeholder="Filter by Date Range")
         .filters.cities
           input.cities-input(placeholder="Text Filter")#city-search
         .filters-reset#reset-button Reset
         .filters.promotions
-          p Feds
+          p Promotion Toggles
           .promotion-tags
+            .promotion-tag.all ALL
+            .promotion-tag.none NONE
             .promotion-tag#wwe WWE
             .promotion-tag#nxt NXT
             .promotion-tag#aew AEW
             .promotion-tag#njpw NJPW
             .promotion-tag#impact Impact
-            .promotion-tag#nxtuk NXT UK
+            .promotion-tag#nxtuk NXTUK
 
     .main-content
       #current
@@ -85,52 +91,51 @@ main#panel
         h2 Calendar
         .calendar-main
           .calendar-filters
-            h3 Pick a Date
-            ul.calendar-month-filters
-              li(onclick="changeMonth('Jan')") Jan
-              li(onclick="changeMonth('Feb')") Feb
-              li(onclick="changeMonth('Mar')") Mar
-              li(onclick="changeMonth('Apr')") Apr
-              li(onclick="changeMonth('May')") May
-              li(onclick="changeMonth('Jun')") Jun
-              li(onclick="changeMonth('Jul')") Jul
-              li(onclick="changeMonth('Aug')") Aug
-              li(onclick="changeMonth('Sep')") Sep
-              li(onclick="changeMonth('Oct')") Oct
-              li(onclick="changeMonth('Nov')") Nov
-              li(onclick="changeMonth('Dec')") Dec
-            ul.calendar-day-filters
-              li(onclick="changeDay('01')") 1st
-              li(onclick="changeDay('02')") 2nd
-              li(onclick="changeDay('03')") 3rd
-              li(onclick="changeDay('04')") 4th
-              li(onclick="changeDay('05')") 5th
-              li(onclick="changeDay('06')") 6th
-              li(onclick="changeDay('07')") 7th
-              li(onclick="changeDay('08')") 8th
-              li(onclick="changeDay('09')") 9th
-              li(onclick="changeDay('10')") 10th
-              li(onclick="changeDay('11')") 11st
-              li(onclick="changeDay('12')") 12th
-              li(onclick="changeDay('13')") 13th
-              li(onclick="changeDay('14')") 14th
-              li(onclick="changeDay('15')") 15th
-              li(onclick="changeDay('16')") 16th
-              li(onclick="changeDay('17')") 17th
-              li(onclick="changeDay('18')") 18th
-              li(onclick="changeDay('19')") 19th
-              li(onclick="changeDay('20')") 20th
-              li(onclick="changeDay('21')") 21st
-              li(onclick="changeDay('22')") 22nd
-              li(onclick="changeDay('23')") 23rd
-              li(onclick="changeDay('24')") 24th
-              li(onclick="changeDay('25')") 25th
-              li(onclick="changeDay('26')") 26th
-              li(onclick="changeDay('27')") 27th
-              li(onclick="changeDay('28')") 28th
-              li(onclick="changeDay('29')") 29th
-              li(onclick="changeDay('30')") 30th
-              li(onclick="changeDay('31')") 31st
+            select(onchange="changeMonth(this.value)").calendar-month-filters
+              option(value='Jan') Jan
+              option(value='Feb') Feb
+              option(value='Mar') Mar
+              option(value='Apr') Apr
+              option(value='May') May
+              option(value='Jun') Jun
+              option(value='Jul') Jul
+              option(value='Aug') Aug
+              option(value='Sep') Sep
+              option(value='Oct') Oct
+              option(value='Nov') Nov
+              option(value='Dec') Dec
+            select(onchange="changeDay(this.value)").calendar-day-filters
+              option(value='01') 1st
+              option(value='02') 2nd
+              option(value='03') 3rd
+              option(value='04') 4th
+              option(value='05') 5th
+              option(value='06') 6th
+              option(value='07') 7th
+              option(value='08') 8th
+              option(value='09') 9th
+              option(value='10') 10th
+              option(value='11') 11st
+              option(value='12') 12th
+              option(value='13') 13th
+              option(value='14') 14th
+              option(value='15') 15th
+              option(value='16') 16th
+              option(value='17') 17th
+              option(value='18') 18th
+              option(value='19') 19th
+              option(value='20') 20th
+              option(value='21') 21st
+              option(value='22') 22nd
+              option(value='23') 23rd
+              option(value='24') 24th
+              option(value='25') 25th
+              option(value='26') 26th
+              option(value='27') 27th
+              option(value='28') 28th
+              option(value='29') 29th
+              option(value='30') 30th
+              option(value='31') 31st
           .calendar-content
             h3 On This Date: 
               span.todays-date

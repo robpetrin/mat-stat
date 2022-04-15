@@ -197,103 +197,173 @@ setTimeout(function(){
         changesContainer.appendChild(entry)
     })
     returnDateChanges()
+
+    let calendarMonthFilter = document.querySelector('.calendar-month-filters')
+    calendarMonthFilter.value = moment().format('MMM')
+
+    let calendarDayFilter = document.querySelector('.calendar-day-filters')
+    calendarDayFilter.value = moment().format('DD')
+
 },1000)
 
 function returnDateChanges() {
+
+    
     let today = document.querySelector('.todays-date')
     today.innerText = `${moment(`2020-${dateObj.month}-01`).format('MMM')} ${moment(`2020-Jan-${dateObj.day}`).format('Do')}`
-
+    
     let onThisDate = document.querySelector('.on-this-date')
-
+    
     let filteredCalendar = calendar.filter(item =>
         (item.sortMonth == dateObj.month) && 
         (item.sortDay == dateObj.day)
         )
-    while (onThisDate.firstChild) {
-        onThisDate.firstChild.remove()
-    }
-    filteredCalendar.forEach(function(change) {
-    let listItem = document.createElement('li')
-
-    let year = document.createElement('div')
-    year.classList.add('calendar-year')
-    year.innerText = change.sortYear
-    listItem.appendChild(year)
-
-    let titleElem = document.createElement('div')
-    titleElem.classList.add('calendar-title')
-
-    let titlePromElem = document.createElement('span')
-    titlePromElem.innerText = change.data.promotion
-    titlePromElem.classList.add('tag')
-    titlePromElem.classList.add(`${change.data.promotion.toLowerCase()}-tag`)
-    
-    let titleNameElem = document.createElement('span')
-    titleNameElem.innerText = change.data['short-name'].toUpperCase()
-    titleNameElem.classList.add('tag')
-    titleNameElem.classList.add(`${change.data.promotion.toLowerCase()}-tag`)
-    titleNameElem.classList.add(`${change.data.promotion.toLowerCase()}-${change.data['short-name'].replace('/','').toLowerCase()}-tag`)
-    
-    titleElem.appendChild(titlePromElem)
-    titleElem.appendChild(titleNameElem)
-    listItem.appendChild(titleElem)
-
-    onThisDate.appendChild(listItem)
-
-    let nameElem = document.createElement('div')
-    nameElem.innerText = change['Champion']
-    nameElem.classList.add('calendar-name')
-    listItem.appendChild(nameElem)
+        while (onThisDate.firstChild) {
+            onThisDate.firstChild.remove()
+        }
+        filteredCalendar.forEach(function(change) {
+            let listItem = document.createElement('li')
+            
+            let year = document.createElement('div')
+            year.classList.add('calendar-year')
+            year.innerText = change.sortYear
+            listItem.appendChild(year)
+            
+            let titleElem = document.createElement('div')
+            titleElem.classList.add('calendar-title')
+            
+            let titlePromElem = document.createElement('span')
+            titlePromElem.innerText = change.data.promotion
+            titlePromElem.classList.add('tag')
+            titlePromElem.classList.add(`${change.data.promotion.toLowerCase()}-tag`)
+            
+            let titleNameElem = document.createElement('span')
+            titleNameElem.innerText = change.data['short-name'].toUpperCase()
+            titleNameElem.classList.add('tag')
+            titleNameElem.classList.add(`${change.data.promotion.toLowerCase()}-tag`)
+            titleNameElem.classList.add(`${change.data.promotion.toLowerCase()}-${change.data['short-name'].replace('/','').toLowerCase()}-tag`)
+            
+            titleElem.appendChild(titlePromElem)
+            titleElem.appendChild(titleNameElem)
+            listItem.appendChild(titleElem)
+            
+            onThisDate.appendChild(listItem)
+            
+            let nameElem = document.createElement('div')
+            nameElem.innerText = change['Champion']
+            nameElem.classList.add('calendar-name')
+            listItem.appendChild(nameElem)
     })
 }
-
+    
+    
 function changeMonth(month) {
+    
     dateObj.month = month
-    returnDateChanges()
-    let calendarDayFilter = document.querySelectorAll('.calendar-day-filters li')
-    let calendarMonthFilter = document.querySelectorAll('.calendar-month-filters li')
-    calendarDayFilter.forEach(function(each){
+    let currentMonth = month
+    
+    let months = document.querySelectorAll('.calendar-day-filters option')
+    months.forEach(function(each){
         each.classList.remove('inactive')
     })
-    calendarMonthFilter[1].addEventListener('click',function(){
-        calendarDayFilter[29].classList.add('inactive')
-        if (dateObj.day == '30') {
-            changeDay(29)
-        }
-        calendarDayFilter[30].classList.add('inactive')
-        if (dateObj.day == '31') {
-            changeDay(29)
-        }
-    })
-    calendarMonthFilter[3].addEventListener('click',function(){
-        calendarDayFilter[30].classList.add('inactive')
-        if (dateObj.day == '31') {
-            changeDay(30)
-        }
-    })
-    calendarMonthFilter[5].addEventListener('click',function(){
-        calendarDayFilter[30].classList.add('inactive')
-        if (dateObj.day == '31') {
-            changeDay(30)
-        }
-    })
-    calendarMonthFilter[8].addEventListener('click',function(){
-        calendarDayFilter[30].classList.add('inactive')
-        if (dateObj.day == '31') {
-            changeDay(30)
-        }
-    })
-    calendarMonthFilter[10].addEventListener('click',function(){
-        calendarDayFilter[30].classList.add('inactive')
-        if (dateObj.day == '31') {
-            changeDay(30)
-        }
-    })
-}
 
+    if (month == 'Feb') {
+        document.querySelector('.calendar-day-filters option[value="30"').classList.add('inactive')
+        document.querySelector('.calendar-day-filters option[value="31"').classList.add('inactive')
+    }
+    if (month == 'Apr') {
+        document.querySelector('.calendar-day-filters option[value="31"').classList.add('inactive')
+    }
+    if (currentMonth == 'Jun') {
+        document.querySelector('.calendar-day-filters option[value="31"').classList.add('inactive')
+    }
+    if (currentMonth == 'Sep') {
+        document.querySelector('.calendar-day-filters option[value="31"').classList.add('inactive')
+    }
+    if (currentMonth == 'Nov') {
+        document.querySelector('.calendar-day-filters option[value="31"').classList.add('inactive')
+    } 
+    
+    
+    let currentDay = document.querySelector('.calendar-day-filters').value
+    if (currentDay == 31) {
+        console.log(month)
+        if (month == 'Feb') {
+            currentDay = 29
+            console.log(currentDay)
+            document.querySelector('.calendar-day-filters').value = 29
+            dateObj.day = 29
+        }
+        if (month == 'Apr') {
+            currentDay = 30
+            document.querySelector('.calendar-day-filters').value = 30
+            dateObj.day = 30
+        }
+        if (currentMonth == 'Jun') {
+            currentDay = 30
+            document.querySelector('.calendar-day-filters').value = 30
+            dateObj.day = 30
+        }
+        if (currentMonth == 'Sep') {
+            currentDay = 30
+            document.querySelector('.calendar-day-filters').value = 30
+            dateObj.day = 30
+        }
+        if (currentMonth == 'Nov') {
+            currentDay = 30
+            document.querySelector('.calendar-day-filters').value = 30
+            dateObj.day = 30
+        } 
+    }
+    if (currentDay == 30) {
+        if (currentMonth == 'Feb') {
+            currentDay = 29
+            document.querySelector('.calendar-day-filters').value = 29
+            dateObj.day = 29
+        }
+    }
+    
+    returnDateChanges()
+        
+}
+    
 function changeDay(day) {
     dateObj.day = day
+
+    let currentMonth = document.querySelector('.calendar-month-filters').value
+
+    if (day == 31) {
+        if (currentMonth == 'Feb') {
+            document.querySelector('.calendar-day-filters').value = 29
+            dateObj.day = 29
+        }
+        if (currentMonth == 'Apr') {
+            document.querySelector('.calendar-day-filters').value = 30
+            dateObj.day = 30
+        }
+        if (currentMonth == 'Jun') {
+            document.querySelector('.calendar-day-filters').value = 30
+            dateObj.day = 30
+        }
+        if (currentMonth == 'Sep') {
+            document.querySelector('.calendar-day-filters').value = 30
+            dateObj.day = 30
+        }
+        if (currentMonth == 'Nov') {
+            document.querySelector('.calendar-day-filters').value = 30
+            dateObj.day = 30
+        } 
+    }
+    if (day == 30) {
+        if (currentMonth == 'Feb') {
+            document.querySelector('.calendar-day-filters').value = 29
+            dateObj.day = 29
+        }
+    }
+    
+
     returnDateChanges()
+
 }
 
 function countDays(start) {
@@ -319,11 +389,9 @@ function drawActiveBoard() {
     if (currentDrawDirection) {
         active = active.sort((a, b) => (a.daysSince < b.daysSince) ? 1 : -1)
         currentDirection.innerText = 'Sort by Most Recent'
-        console.log(currentDrawDirection)
     } else {
         active = active.sort((a, b) => (a.daysSince > b.daysSince) ? 1 : -1)
         currentDirection.innerText = 'Sort by Least Recent'
-        console.log(currentDrawDirection)
     }
     let activeChamps = document.querySelector('.active-champs-inner')
     while (activeChamps.firstChild) {

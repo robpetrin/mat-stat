@@ -68,8 +68,9 @@ filterTitle.addEventListener('click',function(elem){
     elem.classList.toggle('active')
   })
   let filtersDrawer = document.querySelector('.filters-drawer')
-  filtersDrawer.classList.toggle('open')
+  filtersDrawer.classList.toggle('open') 
   filtersDrawer.classList.toggle('closed')
+
 })
 
 // Filters Reset
@@ -111,7 +112,7 @@ menuItems.forEach(function(elem){
 })
 
 if (!window.location.hash) {
-  document.querySelector('#current').style.display = 'block'
+  // document.querySelector('#current').style.display = 'block'
   document.querySelector
 
 }

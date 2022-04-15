@@ -27,11 +27,12 @@
     field: document.getElementById('filter-date'),
     format: 'MMM DD, YYYY',
     singleDate: false,
+    selectBackward: true,
     onSelect: function(start, end){
         var str = '';
         str += start ? start.format('MMM DD, YYYY') + ' to ' : '';
         str += end ? end.format('MMM DD, YYYY') : '...';
-    }
+    },
 });
 </script>
 </body>

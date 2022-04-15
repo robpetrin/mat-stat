@@ -107,57 +107,26 @@ nav {
   .menu li icon {
     margin-left: -1rem;
     margin-right: 0.5rem; }
-  .menu .filters-title {
-    display: flex;
-    gap: 1rem;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.5rem 1.5rem 0.5rem 0;
-    margin: -0.5rem -1.5  rem -0.5rem 0; }
-    .menu .filters-title > span {
-      margin-left: 2rem; }
-  .menu .yellow {
-    background: #daa520;
-    margin-top: -10rem;
-    margin-left: -1rem;
-    text-align: center;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between; }
-    .menu .yellow .filters-icon {
-      position: relative; }
-    .menu .yellow .icon {
-      width: 3.5rem;
-      position: absolute;
-      top: -0.5rem;
-      display: none; }
-    .menu .yellow .active {
-      display: block; }
-    .menu .yellow * {
-      border-color: #daa520 !important; }
-    .menu .yellow:hover {
-      background: #363636;
-      color: #daa520; }
-      .menu .yellow:hover * {
-        border-color: #363636; }
-      .menu .yellow:hover *:after {
-        background: #daa520; }
-    .menu .yellow .yellow:hover .filters-reset {
-      color: initial;
-      background: initial; }
-    .menu .yellow .icon {
-      flex-basis: 25%; }
-    .menu .yellow span {
-      flex-basis: 75%; }
+
+.filters-title {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  padding: 0.5rem 1.5rem 0.5rem 0;
+  margin: -0.5rem -1.5  rem -0.5rem 0; }
+  .filters-title .icon {
+    display: none;
+    margin-top: -0.25rem; }
+  .filters-title .active {
+    display: block; }
 
 .filters-container {
   background: #daa520;
   max-width: 650px;
   margin-left: 0.5rem;
-  padding: 1rem;
+  margin-bottom: 0.25rem;
+  padding: 0.5rem 1rem;
   border-radius: 0.5rem; }
-  .filters-container .show-hide-filters {
-    margin: 0 0.25rem; }
 
 .filters-drawer.open {
   height: initial;
@@ -182,7 +151,7 @@ nav {
   background: #daa520;
   display: flex;
   flex-wrap: wrap; }
-  .filters-drawer .date, .filters-drawer .cities, .filters-drawer .filters-reset {
+  .filters-drawer .date, .filters-drawer .cities {
     flex-basis: 40%;
     position: relative; }
   .filters-drawer .filters-reset {
@@ -195,26 +164,35 @@ nav {
       border: none;
       border-bottom: 1px solid #363636;
       background: transparent;
-      text-transform: initial;
+      text-align: center;
       font-family: inherit;
-      font-size: inherit;
+      font-size: 1rem;
       color: inherit; }
 
 .filters-reset {
-  background: #daa520;
+  background: whitesmoke;
   color: #363636;
-  border-radius: 1rem; }
+  border-radius: 0.5rem;
+  text-align: center;
+  text-transform: uppercase;
+  width: fit-content;
+  padding: 0.25rem 0;
+  margin-top: -0.5rem; }
   .filters-reset:hover {
-    background: whitesmoke;
-    transition: 0.3s background; }
+    background: #daa520;
+    outline: 1px solid whitesmoke;
+    transition: 0.3s background;
+    cursor: pointer; }
 
 .filters.promotions {
-  flex-basis: 100%; }
+  flex-basis: 100%;
+  margin-top: 1rem; }
 
 .promotion-tags {
   margin-top: 0.5rem;
   margin-bottom: -0.5rem;
   display: flex;
+  justify-content: space-between;
   flex-wrap: wrap;
   gap: 0.5rem; }
   .promotion-tags .promotion-tag {
@@ -226,6 +204,14 @@ nav {
     padding: 0.25rem;
     border-radius: 0.5rem;
     border: 1px solid #363636 !important; }
+    .promotion-tags .promotion-tag:hover {
+      cursor: pointer; }
+    .promotion-tags .promotion-tag + .all {
+      background: whitesmoke;
+      color: #363636; }
+    .promotion-tags .promotion-tag + .none {
+      background: #363636;
+      color: whitesmoke; }
   .promotion-tags .inactive {
     opacity: 0.25 !important; }
 
@@ -329,7 +315,7 @@ main {
     margin: 0.25em 0;
     list-style-type: none; }
 
-#current {
+#calendar {
   display: block; }
 
 #map-section {
@@ -444,33 +430,26 @@ br.hide-big {
   color: #daa520; }
 
 .calendar-main {
-  display: flex; }
+  display: flex;
+  flex-direction: column; }
 
 .calendar-filters {
+  width: 100%;
+  max-width: 350px;
   gap: 2rem;
-  margin: 0 0.5rem 2rem;
-  width: 250px; }
-  .calendar-filters h3 {
-    margin-bottom: 1rem; }
-  .calendar-filters .calendar-month-filters {
+  margin: 0 auto 2rem;
+  display: flex;
+  font-size: 1.25rem; }
+  .calendar-filters select {
     color: #daa520;
-    display: flex;
-    flex-wrap: wrap; }
-    .calendar-filters .calendar-month-filters:disabled {
-      background: green; }
-  .calendar-filters .calendar-day-filters {
-    display: flex;
-    flex-wrap: wrap; }
-  .calendar-filters li {
-    flex-basis: 15%;
+    background: #363636;
+    flex-basis: 50%;
+    height: 40px;
     text-align: center;
-    margin-top: 0;
-    margin-bottom: 2rem;
-    margin-right: 1rem;
-    cursor: pointer; }
+    border-radius: 0.5rem;
+    border: 1px solid #daa520; }
   .calendar-filters .inactive {
-    text-decoration: line-through;
-    pointer-events: none; }
+    display: none; }
 
 .calendar-list {
   margin-top: 1rem; }
@@ -719,4 +698,22 @@ br.hide-big {
     margin-left: 0; }
   .active-entry .champion {
     flex-basis: 100%;
-    margin-left: 75px; } }
+    margin-left: calc(75px + 1.25rem); }
+  .filters-drawer .date, .filters-drawer .cities, .filters-drawer .filters-reset {
+    flex-basis: 100%; }
+  .filters-drawer .date, .filters-drawer .cities {
+    margin-top: 1rem; }
+    .filters-drawer .date input, .filters-drawer .cities input {
+      width: 100%; }
+  .filters-drawer .filters-reset {
+    margin-top: 2rem;
+    order: 4; } }
+
+@media (max-width: 400px) {
+  h1 {
+    font-size: 150%;
+    margin-bottom: 0.5rem; }
+  h3 {
+    font-size: 85%; }
+  p {
+    font-size: 80%; } }
