@@ -96,18 +96,22 @@ let menuItems = document.querySelectorAll('.menu-item a')
 let contentSection = document.querySelectorAll('.main-content > div')
 menuItems.forEach(function(elem){
   elem.addEventListener('click',function(event){
-    let hash = event.target.closest('li').id
-    hash = hash.slice(0, -7)
-    menuItems.forEach(function(item){
-      item.classList.remove('active')
-    })
-    contentSection.forEach(function(item) {
-      slideout.toggle()
-      item.style.display = 'none'
-      document.querySelector(`#${hash}`).style.display = 'block'
-      loadMap()
-    })
-    elem.classList.add('active')
+    if (elem.classList.contains('coming-soon')) {
+      return true
+    } else {
+      let hash = event.target.closest('li').id
+      hash = hash.slice(0, -7)
+      menuItems.forEach(function(item){
+        item.classList.remove('active')
+      })
+      contentSection.forEach(function(item) {
+        slideout.toggle()
+        item.style.display = 'none'
+        document.querySelector(`#${hash}`).style.display = 'block'
+        loadMap()
+      })
+      elem.classList.add('active')
+    }
   })
 })
 

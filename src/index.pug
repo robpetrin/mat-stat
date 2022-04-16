@@ -12,7 +12,7 @@ nav#menu
         .icon 
           i.fas.fa-hand-point-down
         span Current
-    li.menu-item#ranks-toggle
+    li.menu-item#ranks-toggle.coming-soon 
       a
         .icon 
           i.fa-solid.fa-medal
@@ -32,7 +32,7 @@ nav#menu
         .icon 
           i.fa-solid.fa-map-location-dot
         span Map
-    li.menu-item#blog-toggle
+    li.menu-item#blog-toggle.coming-soon
       a
         .icon 
           i.fa-solid.fa-blog
@@ -137,8 +137,6 @@ main#panel
               option(value='30') 30th
               option(value='31') 31st
           .calendar-content
-            h3 On This Date: 
-              span.todays-date
             .on-this-date-wrap
               ul.calendar-list.on-this-date
       #map
@@ -146,3 +144,6 @@ main#panel
         .map-section
           #map-element.map
           p Table of winners to change the map view below.
+      #blog
+        h2 Latest Blogs
+        p Table of winners to change the map view below.

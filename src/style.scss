@@ -116,9 +116,30 @@ nav {
     font-size: 1.1rem;
     transition: all 0.3s linear;
     text-decoration: none;
+    position: relative;
     &:hover {
       cursor: pointer;
       color: $goldenrod;
+    }
+  }
+  .coming-soon {
+    cursor: not-allowed;
+    * {
+      cursor: not-allowed;
+    }
+    &:hover :after {
+      content: 'coming soon';
+      position: absolute;
+      font-size: 0.5rem;
+      text-align: center;
+      top: 0;
+      left: 2rem;
+      color: $white;
+      background: $goldenrod;
+      padding: 0.5rem;
+      opacity: 0.6;
+      border-radius: 1rem;
+      cursor: not-allowed;
     }
   }
   li a.active {
@@ -897,6 +918,10 @@ br.hide-big {
   }
   p {
     font-size: 80%;
+  }
+  .calendar-filters {
+    width: fit-content;
+    margin: 0;
   }
 }
 

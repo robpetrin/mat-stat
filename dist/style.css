@@ -98,10 +98,28 @@ nav {
     text-transform: uppercase;
     font-size: 1.1rem;
     transition: all 0.3s linear;
-    text-decoration: none; }
+    text-decoration: none;
+    position: relative; }
     .menu li:hover, .menu li a:hover {
       cursor: pointer;
       color: #daa520; }
+  .menu .coming-soon {
+    cursor: not-allowed; }
+    .menu .coming-soon * {
+      cursor: not-allowed; }
+    .menu .coming-soon:hover :after {
+      content: 'coming soon';
+      position: absolute;
+      font-size: 0.5rem;
+      text-align: center;
+      top: 0;
+      left: 2rem;
+      color: whitesmoke;
+      background: #daa520;
+      padding: 0.5rem;
+      opacity: 0.6;
+      border-radius: 1rem;
+      cursor: not-allowed; }
   .menu li a.active {
     color: #daa520; }
   .menu li icon {
@@ -716,4 +734,7 @@ br.hide-big {
   h3 {
     font-size: 85%; }
   p {
-    font-size: 80%; } }
+    font-size: 80%; }
+  .calendar-filters {
+    width: fit-content;
+    margin: 0; } }

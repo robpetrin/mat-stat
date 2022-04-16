@@ -207,10 +207,6 @@ setTimeout(function(){
 },1000)
 
 function returnDateChanges() {
-
-    
-    let today = document.querySelector('.todays-date')
-    today.innerText = `${moment(`2020-${dateObj.month}-01`).format('MMM')} ${moment(`2020-Jan-${dateObj.day}`).format('Do')}`
     
     let onThisDate = document.querySelector('.on-this-date')
     
