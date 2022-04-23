@@ -14,7 +14,7 @@ html, body {
   height: 100%;
 }
 body {
-  width: 100%;
+  width: 102%;
   font-family: 'Roboto', sans-serif;
   color: $white;
   letter-spacing: 3px;
@@ -388,7 +388,7 @@ main {
   #calendar,
   .ranks-section,
   .changes-section,
-  .map-section {
+  #cities {
     padding: 0.5rem;
     * {
       user-select: none;
@@ -404,24 +404,22 @@ main {
   }
 }
 
-#calendar {
-  display: block;
-}
-#map-section {
+.map-section {
   display: grid;
   place-items: center;
 }
-.map {
-  height: 70vh;
+#map {
+  height: 60vh;
   width: 100%;
+  aspect-ratio: 3 / 2;
 }
 .main-content > div {
   scroll-margin-top: 200px;
   display: none;
 }
-// #changes {
-//   display: block;
-// }
+#cities {
+  display: block;
+}
 
 .active-champs {
   margin-left: 0.5rem;
@@ -562,16 +560,15 @@ br.hide-big {
 }
 
 .calendar-filters {
-  width: 100%;
-  max-width: 350px;
+  width: 150px;
   gap: 2rem;
-  margin: 0 auto 2rem;
+  margin: 0;
   display: flex;
   font-size: 1.25rem; 
   select {
     color: $goldenrod;
     background: $dark;
-    flex-basis: 50%;
+    flex-basis: 75px;
     height: 40px;
     text-align: center;
     border-radius: 0.5rem;
@@ -918,10 +915,6 @@ br.hide-big {
   }
   p {
     font-size: 80%;
-  }
-  .calendar-filters {
-    width: fit-content;
-    margin: 0;
   }
 }
 

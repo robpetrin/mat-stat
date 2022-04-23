@@ -7,7 +7,7 @@ html, body {
   height: 100%; }
 
 body {
-  width: 100%;
+  width: 102%;
   font-family: 'Roboto', sans-serif;
   color: whitesmoke;
   letter-spacing: 3px;
@@ -318,13 +318,13 @@ main {
   .main-inside #calendar,
   .main-inside .ranks-section,
   .main-inside .changes-section,
-  .main-inside .map-section {
+  .main-inside #cities {
     padding: 0.5rem; }
     .main-inside #current *,
     .main-inside #calendar *,
     .main-inside .ranks-section *,
     .main-inside .changes-section *,
-    .main-inside .map-section * {
+    .main-inside #cities * {
       user-select: none; }
   .main-inside .subhead-top {
     margin-left: 0.5rem;
@@ -333,20 +333,21 @@ main {
     margin: 0.25em 0;
     list-style-type: none; }
 
-#calendar {
-  display: block; }
-
-#map-section {
+.map-section {
   display: grid;
   place-items: center; }
 
-.map {
-  height: 70vh;
-  width: 100%; }
+#map {
+  height: 60vh;
+  width: 100%;
+  aspect-ratio: 3 / 2; }
 
 .main-content > div {
   scroll-margin-top: 200px;
   display: none; }
+
+#cities {
+  display: block; }
 
 .active-champs {
   margin-left: 0.5rem;
@@ -452,16 +453,15 @@ br.hide-big {
   flex-direction: column; }
 
 .calendar-filters {
-  width: 100%;
-  max-width: 350px;
+  width: 150px;
   gap: 2rem;
-  margin: 0 auto 2rem;
+  margin: 0;
   display: flex;
   font-size: 1.25rem; }
   .calendar-filters select {
     color: #daa520;
     background: #363636;
-    flex-basis: 50%;
+    flex-basis: 75px;
     height: 40px;
     text-align: center;
     border-radius: 0.5rem;
@@ -734,7 +734,4 @@ br.hide-big {
   h3 {
     font-size: 85%; }
   p {
-    font-size: 80%; }
-  .calendar-filters {
-    width: fit-content;
-    margin: 0; } }
+    font-size: 80%; } }

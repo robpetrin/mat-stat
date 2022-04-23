@@ -1,10 +1,79 @@
 let changes = []
+
 let calendar = []
+
 let ranks = []
-let map = []
+
+let cities = []
+let locData = []
+let activeCity = ''
+let abbreviations = {
+    "AL": "Alabama",
+    "AK": "Alaska",
+    "AS": "American Samoa",
+    "AZ": "Arizona",
+    "AR": "Arkansas",
+    "CA": "California",
+    "CO": "Colorado",
+    "CT": "Connecticut",
+    "DE": "Delaware",
+    "DC": "District Of Columbia",
+    "FM": "Federated States Of Micronesia",
+    "FL": "Florida",
+    "GA": "Georgia",
+    "GU": "Guam",
+    "HI": "Hawaii",
+    "ID": "Idaho",
+    "IL": "Illinois",
+    "IN": "Indiana",
+    "IA": "Iowa",
+    "KS": "Kansas",
+    "KY": "Kentucky",
+    "LA": "Louisiana",
+    "ME": "Maine",
+    "MH": "Marshall Islands",
+    "MD": "Maryland",
+    "MA": "Massachusetts",
+    "MI": "Michigan",
+    "MN": "Minnesota",
+    "MS": "Mississippi",
+    "MO": "Missouri",
+    "MT": "Montana",
+    "NE": "Nebraska",
+    "NV": "Nevada",
+    "NH": "New Hampshire",
+    "NJ": "New Jersey",
+    "NM": "New Mexico",
+    "NY": "New York",
+    "NC": "North Carolina",
+    "ND": "North Dakota",
+    "MP": "Northern Mariana Islands",
+    "OH": "Ohio",
+    "OK": "Oklahoma",
+    "OR": "Oregon",
+    "PW": "Palau",
+    "PA": "Pennsylvania",
+    "PR": "Puerto Rico",
+    "RI": "Rhode Island",
+    "SC": "South Carolina",
+    "SD": "South Dakota",
+    "TN": "Tennessee",
+    "TX": "Texas",
+    "UT": "Utah",
+    "VT": "Vermont",
+    "VI": "Virgin Islands",
+    "VA": "Virginia",
+    "WA": "Washington",
+    "WV": "West Virginia",
+    "WI": "Wisconsin",
+    "WY": "Wyoming"
+}
+
 let current = []
+
 let active = []
 let averageReign = 0
+
 setTimeout(function() {
     if (averageReign > 0) {
         let averageReignElem = document.querySelector('.average-reign')
@@ -22,7 +91,7 @@ fetch('./changes.json')
 .then(res => res.json())
 .then(data => {
 
-    data.forEach(function(item) {
+    data.forEach(function(item, index) {
         if (item['Champion'].includes('(')) {
             let regex = /\(([^()]*)\)/g
             item['Champion'] = item['Champion'].replace(regex,'')
@@ -40,7 +109,301 @@ fetch('./changes.json')
             let regex = /\(([^()]*)\)/g
             item['Championship_change_Date'] = moment(item['Championship_change_Date'].replace(regex,''))
         }
+
+        if (item["Championship_change_Location"].match('Red Sea')) {
+            item["Championship_change_Location"] = "Red Sea"
+        }
+
+        if (item["Championship_change_Location"].includes(', British Columbia')) {
+            item["Championship_change_Location"] = item["Championship_change_Location"].replace(', British Columbia',', BC')
+        }
         
+        if (item["Championship_change_Location"].includes(', New Jersey')) {
+            item["Championship_change_Location"] = item["Championship_change_Location"].replace(', New Jersey',', NJ')
+        }
+        
+        if (item["Championship_change_Location"].includes(', New Mexico')) {
+            item["Championship_change_Location"] = item["Championship_change_Location"].replace(', New Mexico',', NM')
+        }
+        
+        if (item["Championship_change_Location"].includes(', New York')) {
+            item["Championship_change_Location"] = item["Championship_change_Location"].replace(', New York',', NY')
+        }
+
+        if (item["Championship_change_Location"].includes('New York,')) {
+            item["Championship_change_Location"] = item["Championship_change_Location"].replace('New York,',', New York City,')
+        }
+
+        if (item["Championship_change_Location"].match('New York City')) {
+            item["Championship_change_Location"] = "New York City, NY"
+        }
+
+        if (item["Championship_change_Location"].match('New York City')) {
+            item["Championship_change_Location"] = "New York, NY"
+        }
+
+        if (item["Championship_change_Location"].includes(', North Carolina')) {
+            item["Championship_change_Location"] = item["Championship_change_Location"].replace(', North Carolina',', NC')
+        }
+
+        if (item["Championship_change_Location"].includes(', North Dakota')) {
+            item["Championship_change_Location"] = item["Championship_change_Location"].replace(', North Dakota',', ND')
+        }
+
+        if (item["Championship_change_Location"].includes(', Rhode Island')) {
+            item["Championship_change_Location"] = item["Championship_change_Location"].replace(', Rhode Island',', RI')
+        }
+
+        if (item["Championship_change_Location"].includes(', South Carolina')) {
+            item["Championship_change_Location"] = item["Championship_change_Location"].replace(', South Carolina',', SC')
+        }
+        
+        if (item["Championship_change_Location"].includes(', South Dakota')) {
+            item["Championship_change_Location"] = item["Championship_change_Location"].replace(', South Dakota',', SD')
+        }
+
+        if (item["Championship_change_Location"].includes(', Alabama')) {
+            item["Championship_change_Location"] = item["Championship_change_Location"].replace(', Alabama',', AL')
+        }
+        
+        if (item["Championship_change_Location"].includes(', Alberta')) {
+            item["Championship_change_Location"] = item["Championship_change_Location"].replace(', Alberta',', AB')
+        }
+
+        if (item["Championship_change_Location"].includes(', Arizona')) {
+            item["Championship_change_Location"] = item["Championship_change_Location"].replace(', Arizona',', AZ')
+        }
+
+        if (item["Championship_change_Location"].includes(', California')) {
+            item["Championship_change_Location"] = item["Championship_change_Location"].replace(', California',', CA')
+        }
+
+        if (item["Championship_change_Location"].includes(', Colorado')) {
+            item["Championship_change_Location"] = item["Championship_change_Location"].replace(', Colorado',', CO')
+        }
+
+        if (item["Championship_change_Location"].includes(', Connecticut')) {
+            item["Championship_change_Location"] = item["Championship_change_Location"].replace(', Connecticut',', CT')
+        }
+
+        if (item["Championship_change_Location"].includes(', Delaware')) {
+            item["Championship_change_Location"] = item["Championship_change_Location"].replace(', Delaware',', DE')
+        }
+
+
+        if (item["Championship_change_Location"].includes(', Florida')) {
+            item["Championship_change_Location"] = item["Championship_change_Location"].replace(', Florida',', FL')
+        }
+
+        if (item["Championship_change_Location"].includes(', Georgia')) {
+            item["Championship_change_Location"] = item["Championship_change_Location"].replace(', Georgia',', GA')
+        }
+                
+        if (item["Championship_change_Location"].includes(', Illinois')) {
+            item["Championship_change_Location"] = item["Championship_change_Location"].replace(', Illinois',', IL')
+        }
+                   
+        if (item["Championship_change_Location"].includes(', Idaho')) {
+            item["Championship_change_Location"] = item["Championship_change_Location"].replace(', Idaho',', ID')
+        }
+                  
+        if (item["Championship_change_Location"].includes(', Indiana')) {
+            item["Championship_change_Location"] = item["Championship_change_Location"].replace(', Indiana',', IN')
+        }
+        
+        if (item["Championship_change_Location"].includes(', Iowa')) {
+            item["Championship_change_Location"] = item["Championship_change_Location"].replace(', Iowa',', IA')
+        }
+        
+        if (item["Championship_change_Location"].includes(', Kentucky')) {
+            item["Championship_change_Location"] = item["Championship_change_Location"].replace(', Kentucky',', KY')
+        }
+             
+        if (item["Championship_change_Location"].includes(', Kentucky')) {
+            item["Championship_change_Location"] = item["Championship_change_Location"].replace(', Kentucky',', KY')
+        }
+                
+        if (item["Championship_change_Location"].includes(', Louisiana')) {
+            item["Championship_change_Location"] = item["Championship_change_Location"].replace(', Louisiana',', LA')
+        }
+  
+        if (item["Championship_change_Location"].includes(', Manitoba')) {
+            item["Championship_change_Location"] = item["Championship_change_Location"].replace(', Manitoba',', MB')
+        }
+        
+        if (item["Championship_change_Location"].includes(', Massachusetts')) {
+            item["Championship_change_Location"] = item["Championship_change_Location"].replace(', Massachusetts',', MA')
+        }
+                
+        if (item["Championship_change_Location"].includes(', Maryland')) {
+            item["Championship_change_Location"] = item["Championship_change_Location"].replace(', Maryland',', MD')
+        }
+        
+        if (item["Championship_change_Location"].includes(', Michigan')) {
+            item["Championship_change_Location"] = item["Championship_change_Location"].replace(', Michigan',', MI')
+        }
+        
+        if (item["Championship_change_Location"].includes(', Mississippi')) {
+            item["Championship_change_Location"] = item["Championship_change_Location"].replace(', Mississippi',', MS')
+        }
+        
+        if (item["Championship_change_Location"].includes(', Minnesota')) {
+            item["Championship_change_Location"] = item["Championship_change_Location"].replace(', Minnesota',', MN')
+        }
+
+        if (item["Championship_change_Location"].includes(', Missouri')) {
+            item["Championship_change_Location"] = item["Championship_change_Location"].replace(', Missouri',', MO')
+        }
+
+        if (item["Championship_change_Location"].includes('Montreal QC')) {
+            item["Championship_change_Location"] = item["Championship_change_Location"].replace('Montreal QC','Montreal, QC')
+        }
+
+        if (item["Championship_change_Location"].includes(', Nebraska')) {
+            item["Championship_change_Location"] = item["Championship_change_Location"].replace(', Nebraska',', NE')
+        }
+
+        if (item["Championship_change_Location"].includes(', Nevada')) {
+            item["Championship_change_Location"] = item["Championship_change_Location"].replace(', Nevada',', NV')
+        }
+
+        if (item["Championship_change_Location"].includes(', Ohio')) {
+            item["Championship_change_Location"] = item["Championship_change_Location"].replace(', Ohio',', OH')
+        }
+
+        if (item["Championship_change_Location"].match('Ontario, CA')) {
+            item["Championship_change_Location"] = "Ontttttario, CA"
+        }
+
+        if (item["Championship_change_Location"].match('Ontario')) {
+            item["Championship_change_Location"] = "Toronto, ON"
+        }
+
+        if (item["Championship_change_Location"].match('Ontttttario, CA')) {
+            item["Championship_change_Location"] = "Ontario, CA"
+        }
+
+
+        if (item["Championship_change_Location"].includes(', Pennsylvania')) {
+            item["Championship_change_Location"] = item["Championship_change_Location"].replace(', Pennsylvania',', PA')
+        }
+
+        if (item["Championship_change_Location"].includes(', Quebec')) {
+            item["Championship_change_Location"] = item["Championship_change_Location"].replace(', Quebec',', QC')
+        }
+
+        if (item["Championship_change_Location"].includes(', Tennessee')) {
+            item["Championship_change_Location"] = item["Championship_change_Location"].replace(', Tennessee',', TN')
+        }
+
+        if (item["Championship_change_Location"].includes(', Texas')) {
+            item["Championship_change_Location"] = item["Championship_change_Location"].replace(', Texas',', TX')
+        }
+
+        if (item["Championship_change_Location"].includes(', Utah')) {
+            item["Championship_change_Location"] = item["Championship_change_Location"].replace(', Utah',', UT')
+        }
+
+        if (item["Championship_change_Location"].includes(', Virginia')) {
+            item["Championship_change_Location"] = item["Championship_change_Location"].replace(', Virginia',', VA')
+        }
+
+        if (item["Championship_change_Location"].includes(', Washington')) {
+            item["Championship_change_Location"] = item["Championship_change_Location"].replace(', Washington',', WA')
+        }
+
+        if (item["Championship_change_Location"].includes(', Wisconsin')) {
+            item["Championship_change_Location"] = item["Championship_change_Location"].replace(', Wisconsin',', WI')
+        }
+
+        if (item["Championship_change_Location"].includes(', U.S.')) {
+            item["Championship_change_Location"] = item["Championship_change_Location"].replace(', U.S.','')
+        }
+
+        if (item["Championship_change_Location"].includes(',  U.S.')) {
+            item["Championship_change_Location"] = item["Championship_change_Location"].replace(',  U.S.','')
+        }
+
+        if (item["Championship_change_Location"].includes(', Bahamas')) {
+            item["Championship_change_Location"] = item["Championship_change_Location"].replace(', Bahamas',', The Bahamas')
+        }
+
+        if (item["Championship_change_Location"].includes(', England')) {
+            item["Championship_change_Location"] = item["Championship_change_Location"].replace(', England',', United Kingdom')
+        }
+
+        if (item["Championship_change_Location"].includes(', Scotland')) {
+            item["Championship_change_Location"] = item["Championship_change_Location"].replace(', Scotland',', United Kingdom')
+        }
+
+        if (item["Championship_change_Location"].includes(', Trinidad')) {
+            item["Championship_change_Location"] = item["Championship_change_Location"].replace(', Trinidad',', Trinidad And Tobago')
+        }
+
+        if (item["Championship_change_Location"].includes('Cardiff, Wales')) {
+            item["Championship_change_Location"] = item["Championship_change_Location"].replace('Cardiff, Wales','Caerdydd, United Kingdom')
+        }
+
+        if (item["Championship_change_Location"].includes(', Canada')) {
+            item["Championship_change_Location"] = item["Championship_change_Location"].replace(', Canada','')
+        }
+
+        if (item["Championship_change_Location"].includes('Berwick, Victoria')) {
+            item["Championship_change_Location"] = 'Melbourne, Australia'
+        }
+
+        if (item["Championship_change_Location"].includes('Saint Paul')) {
+            item["Championship_change_Location"] = item["Championship_change_Location"].replace('Saint Paul','St. Paul')
+        }
+
+        if (item["Championship_change_Location"].includes('Montreal')) {
+            item["Championship_change_Location"] = item["Championship_change_Location"].replace('Montreal','Montréal')
+        }
+        
+        if (item["Championship_change_Location"].includes('Juárez')) {
+            item["Championship_change_Location"] = item["Championship_change_Location"].replace('Juarez','Juárez')
+        }
+        
+        if (item["Championship_change_Location"].includes('Naucalpan')) {
+            item["Championship_change_Location"] = item["Championship_change_Location"].replace('Naucalpan','Naucalpan de Juárez')
+        }
+        
+        if (item["Championship_change_Location"].includes('Singapore')) {
+            item["Championship_change_Location"] = 'Singapore, Singapore'
+        }
+        
+        if (item["Championship_change_Location"].includes('Puerto Rico')) {
+            item["Championship_change_Location"] = item["Championship_change_Location"].replace('Puerto Rico','PR')
+        }
+        
+        if (item["Championship_change_Location"].includes('Tokyo,Japan')) {
+            item["Championship_change_Location"] = item["Championship_change_Location"].replace('Tokyo,Japan','Tokyo, Japan')
+        }
+        
+        if (item["Championship_change_Location"].includes('Miyagi')) {
+            item["Championship_change_Location"] = 'Sendai, Japan'
+        }
+
+        if (item["Championship_change_Location"].includes('Osaka')) {
+            item["Championship_change_Location"] = item["Championship_change_Location"].replace('Osaka','Ōsaka')
+        }
+
+        if (item["Championship_change_Location"].includes('Kobe')) {
+            item["Championship_change_Location"] = item["Championship_change_Location"].replace('Kobe','Kōbe')
+        }
+
+        if (item["Championship_change_Location"].includes('Takuyama')) {
+            item["Championship_change_Location"] = item["Championship_change_Location"].replace('Takuyama','Shūnan')
+        }
+
+        if (item["Championship_change_Location"].includes('Naruko')) {
+            item["Championship_change_Location"] = item["Championship_change_Location"].replace('Naruko','Ōsaki')
+        }
+
+        if (item["Championship_change_Location"].includes('Hyōgo')) {
+            item["Championship_change_Location"] = item["Championship_change_Location"].replace('Hyōgo','Harima')
+        }
+
         item.sortDate = moment(item['Championship_change_Date']).format("YYYY-MM-DD")
         item.sortYear = moment(item['Championship_change_Date']).format("YYYY")
         item.sortMonth = moment(item['Championship_change_Date']).format("MMM")
@@ -122,8 +485,28 @@ fetch('./changes.json')
     calendar = JSON.parse(JSON.stringify(data))
     ranks = JSON.parse(JSON.stringify(data))
     
-    map = JSON.parse(JSON.stringify(data))
-    
+    mapChanges = JSON.parse(JSON.stringify(data))
+    cities = [...new Set(mapChanges.map(item => item["Championship_change_Location"]))]
+    cities = cities.sort()
+    cities.forEach(function(each){
+        let loc = {}
+        let split = each.split(', ')
+        loc.city = split[0]
+        loc.admin = split[1]
+        if (split[0].includes('Washington')) {
+            loc.city = 'Washington'
+            loc.admin = 'DC'
+            loc.stateName = 'District of Columbia'
+        }
+        if ((split[1]) && split[1].length === 2) {
+            loc.stateName = abbreviations[loc.admin]
+            if (!loc.stateName) {
+                loc.admin = 'Canada'
+            }
+        }
+        locData.push(loc)
+    })
+    populateMap(locData)
 })
 
 fetch('./per-title.json')
@@ -434,4 +817,99 @@ function drawActiveBoard() {
     active.forEach(function(each){
         averageReign += each.daysSince
     })
+}
+
+function populateMap(cityData) {
+    var map = L.map('map').setView({lon: 0, lat: 0}, 2);
+    let geoData = []
+
+    // add the OpenStreetMap tiles
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        noWrap: true,
+        attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap contributors</a>'
+    }).addTo(map);
+    
+    fetch('./geodata.json')
+    .then(res => res.json())
+    .then(data => {
+
+        data.forEach(function(item, index) {
+            geoData.push(item)
+        })
+        locData.forEach(function(each){
+            // placeholders for lat and long
+            let plot = {}
+            plot.lat = 0
+            plot.lon = 0
+            
+            var yellowIcon = new L.Icon({
+                iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-yellow.png',
+                shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+                iconSize: [25, 41],
+                iconAnchor: [12, 41],
+                popupAnchor: [1, -34],
+                shadowSize: [41, 41]
+              });
+            
+            if (!each.stateName) {
+                if (each.city === 'Red Sea') {
+                    L.marker({lat: 20.7298342152784, lon: 38.36142249261074},{icon: yellowIcon},).bindPopup('39,000 Feet above the Red Sea').addTo(map);
+                }
+                const firstResults = geoData.filter(obj => {
+                    return obj.country === each.admin
+                })
+                const secondResults = firstResults.filter(obj => {
+                    return obj['city'] === each.city
+                })
+                if (secondResults.length) {
+                    L.marker({lon: secondResults[0].lng, lat: secondResults[0].lat},{icon: yellowIcon}).bindPopup(secondResults[0]['city_ascii']).addTo(map);
+                } else {
+                    console.log(each)
+                }
+            } else {
+                if (each.city === 'Devon') {
+                    L.marker({lat: 40.04785687017131, lon: -75.42553715137038},{icon: yellowIcon},).bindPopup(each.city).addTo(map);
+                }
+                if (each.city === 'Fort Bragg') {
+                    L.marker({lat: 35.13871979850291, lon: -79.01132345457837},{icon: yellowIcon},).bindPopup(each.city).addTo(map);
+                }
+                if (each.city === 'Hamburg') {
+                    L.marker({lat: 40.555015319315125, lon: -75.98186714056034},{icon: yellowIcon},).bindPopup(each.city).addTo(map);
+                }
+                if (each.city === 'Misenheimer') {
+                    L.marker({lat: 35.48226651190591, lon: -80.2873670614581},{icon: yellowIcon},).bindPopup(each.city).addTo(map);
+                }
+                if (each.city === 'Mount Tabor') {
+                    L.marker({lat: 40.01280001282385, lon: -77.23964189924428},{icon: yellowIcon},).bindPopup(each.city).addTo(map);
+                }
+                if (each.city === 'Rosemont') {
+                    L.marker({lat: 42.00571106965399, lon: -87.88791601290411},{icon: yellowIcon},).bindPopup(each.city).addTo(map);
+                }
+                if (each.city === 'Sewell') {
+                    L.marker({lat: 39.76578673412731, lon: -75.14429553629017},{icon: yellowIcon},).bindPopup(each.city).addTo(map);
+                }
+                if (each.city === 'Uncasville') {
+                    L.marker({lat: 41.49143010618226, lon: -72.08840390331785},{icon: yellowIcon},).bindPopup(each.city).addTo(map);
+                }
+                if (each.city === 'Wildwood') {
+                    L.marker({lat: 38.992768045502714, lon: -74.8152056087337},{icon: yellowIcon},).bindPopup(each.city).addTo(map);
+                }
+
+                const firstResults = geoData.filter(obj => {
+                    return obj['admin_name'] === each.stateName
+                })
+                const secondResults = firstResults.filter(obj => {
+                    return obj['city'] === each.city
+                })
+                if (secondResults.length) {
+                    L.marker({lon: secondResults[0].lng, lat: secondResults[0].lat},{icon: yellowIcon}).bindPopup(secondResults[0]['city_ascii']).addTo(map);
+                } else {
+                    console.log(each)
+                }
+            }
+            
+        })
+    })
+    
 }

@@ -42,4 +42,11 @@ setTimeout(function() {
         return
         }
     })
+    const cities = [...new Set(allChanges.map(item => item["Championship_change_Location"]))]
+    fs.writeFile(`./cities.json`, JSON.stringify(cities), err => {
+        if (err) {
+        console.error(err)
+        return
+        }
+    })
 },30000)

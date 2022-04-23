@@ -41,25 +41,6 @@ document.addEventListener('keydown', function (event) {
   }
 });
 
-function loadMap() {
-  document.querySelectorAll('.ol-viewport').forEach(function(each){
-    each.remove()
-  })
-  // Map Element
-  var map = new ol.Map({
-          target: 'map-element',
-          layers: [
-            new ol.layer.Tile({
-              source: new ol.source.OSM()
-            })
-          ],
-          view: new ol.View({
-            center: ol.proj.fromLonLat([37.41, 8.82]),
-            zoom: 4
-          })
-        });
-}
-
 // Filters Toggle
 let filterTitle = document.querySelector('.filters-title')
 filterTitle.addEventListener('click',function(elem){
@@ -108,7 +89,6 @@ menuItems.forEach(function(elem){
         slideout.toggle()
         item.style.display = 'none'
         document.querySelector(`#${hash}`).style.display = 'block'
-        loadMap()
       })
       elem.classList.add('active')
     }
@@ -121,6 +101,6 @@ if (!window.location.hash) {
 
 }
 
-if (window.location.hash) {
-  document.querySelector(window.location.hash).style.display = 'block'
-}
+// if (window.location.hash) {
+//   document.querySelector(window.location.hash).style.display = 'block'
+// }
