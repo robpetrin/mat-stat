@@ -865,7 +865,7 @@ function populateMap(cityData) {
                 if (secondResults.length) {
                     L.marker({lon: secondResults[0].lng, lat: secondResults[0].lat},{icon: yellowIcon}).bindPopup(secondResults[0]['city_ascii']).addTo(map);
                 } else {
-                    console.log(each)
+                    // console.log(each)
                 }
             } else {
                 if (each.city === 'Devon') {
@@ -905,7 +905,7 @@ function populateMap(cityData) {
                 if (secondResults.length) {
                     L.marker({lon: secondResults[0].lng, lat: secondResults[0].lat},{icon: yellowIcon}).bindPopup(secondResults[0]['city_ascii']).addTo(map);
                 } else {
-                    console.log(each)
+                    // console.log(each)
                 }
             }
             

@@ -877,6 +877,16 @@ br.hide-big {
   border: 1px solid #15110c;
 }
 
+.leaflet-popup-content {
+  color: $dark;
+  transition: all 0.5s linear;
+  &:hover {
+    text-decoration: underline;
+    color: $goldenrod;
+    cursor: pointer;
+  }
+}
+
 @media (max-width: 700px) {
   br.hide-big {
     display: block;

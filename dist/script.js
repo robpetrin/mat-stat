@@ -104,3 +104,10 @@ if (!window.location.hash) {
 // if (window.location.hash) {
 //   document.querySelector(window.location.hash).style.display = 'block'
 // }
+
+let mapPops = document.querySelectorAll('.leaflet-popup-content')
+mapPops.forEach(function(each){
+  each.addEventListener('mouseover',function(event){
+    console.log(each)
+  })
+})

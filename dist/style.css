@@ -709,6 +709,14 @@ br.hide-big {
   color: #4a3a24;
   border: 1px solid #15110c; }
 
+.leaflet-popup-content {
+  color: #363636;
+  transition: all 0.5s linear; }
+  .leaflet-popup-content:hover {
+    text-decoration: underline;
+    color: #daa520;
+    cursor: pointer; }
+
 @media (max-width: 700px) {
   br.hide-big {
     display: block; }
